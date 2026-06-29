@@ -156,6 +156,77 @@ html.ap-loader-leaving body::after {
   }
 }
 
+.ap-day-text-rain {
+  position: fixed;
+  inset: 0;
+  z-index: 880;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ap-day-text-drop {
+  position: absolute;
+  top: -80px;
+  left: var(--ap-day-text-left, 50vw);
+  max-width: min(420px, 68vw);
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 139, 210, 0.24);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 250, 254, 0.46), rgba(255, 207, 237, 0.28)),
+    rgba(255, 255, 255, 0.2);
+  box-shadow: 0 12px 28px rgba(255, 105, 190, 0.12);
+  color: rgba(119, 54, 95, 0.56);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  text-shadow: 0 1px 10px rgba(255, 255, 255, 0.5);
+  transform: translate3d(0, -12vh, 0) scale(var(--ap-day-text-scale, 1));
+  animation: ap-day-text-fall var(--ap-day-text-duration, 11s) linear forwards;
+  backdrop-filter: blur(8px) saturate(1.08);
+  -webkit-backdrop-filter: blur(8px) saturate(1.08);
+  will-change: transform, opacity;
+}
+
+@keyframes ap-day-text-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -12vh, 0) scale(var(--ap-day-text-scale, 1));
+  }
+
+  12% {
+    opacity: 0.72;
+  }
+
+  82% {
+    opacity: 0.54;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--ap-day-text-drift, 0px), 112vh, 0) scale(var(--ap-day-text-scale, 1));
+  }
+}
+
+html.ap-night-mode .ap-day-text-rain {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .ap-day-text-drop {
+    max-width: min(320px, 76vw);
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ap-day-text-drop {
+    animation: none;
+  }
+}
+
 #page-header.full_page {
   position: relative;
   background: url("/img/angelkawaii3.gif") center / cover no-repeat !important;
