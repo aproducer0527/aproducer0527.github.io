@@ -35,7 +35,10 @@
   }
 
   function shouldRun() {
+    var path = window.location.pathname.replace(/\/index\.html$/, '/');
+
     return document.body &&
+      path === '/' &&
       !root.classList.contains('ap-night-mode') &&
       !root.classList.contains('ap-page-loading');
   }
