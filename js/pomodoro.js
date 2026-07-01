@@ -202,8 +202,8 @@
     });
   }
 
-  function getBackgroundShell(root) {
-    return root.querySelector('.ap-pomodoro-shell') || root;
+  function getBackgroundHost() {
+    return document.body || document.documentElement;
   }
 
   function clearBackgroundLayer(layer) {
@@ -257,15 +257,25 @@
   function ensureBackgroundLayers(root, state) {
     if (state.backgroundLayers.length) return state.backgroundLayers;
 
-    var shell = getBackgroundShell(root);
+    var host = getBackgroundHost();
+    var existing = document.querySelector('.ap-pomodoro-page-bg');
+    if (existing && existing.parentNode) {
+      existing.parentNode.removeChild(existing);
+    }
+
+    var container = document.createElement('div');
     var first = document.createElement('div');
     var second = document.createElement('div');
+    container.className = 'ap-pomodoro-page-bg';
     first.className = 'ap-pomodoro-bg-layer';
     second.className = 'ap-pomodoro-bg-layer';
+    container.setAttribute('aria-hidden', 'true');
     first.setAttribute('aria-hidden', 'true');
     second.setAttribute('aria-hidden', 'true');
-    shell.insertBefore(second, shell.firstChild);
-    shell.insertBefore(first, shell.firstChild);
+    container.appendChild(first);
+    container.appendChild(second);
+    host.insertBefore(container, host.firstChild);
+    state.backgroundContainer = container;
     state.backgroundLayers = [first, second];
     return state.backgroundLayers;
   }
@@ -685,6 +695,7 @@
       intervalId: 0,
       backgroundIntervalId: 0,
       backgroundFadeTimeoutId: 0,
+      backgroundContainer: null,
       backgroundLayers: [],
       backgroundVisibleLayer: 0,
       round: 1
@@ -837,9 +848,12 @@
 
         state.backgroundLayers.forEach(function (layer) {
           clearBackgroundLayer(layer);
-          if (layer.parentNode) layer.parentNode.removeChild(layer);
         });
         state.backgroundLayers = [];
+        if (state.backgroundContainer && state.backgroundContainer.parentNode) {
+          state.backgroundContainer.parentNode.removeChild(state.backgroundContainer);
+        }
+        state.backgroundContainer = null;
         clearAutoplayGestureFallback(root);
         root.classList.remove('is-bg-fading');
         delete root.dataset.bgReady;
