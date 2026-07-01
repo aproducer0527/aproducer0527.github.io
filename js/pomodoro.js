@@ -432,7 +432,7 @@
       meting.setAttribute('id', root.dataset.playlistId || playlistId);
       meting.setAttribute('loop', 'all');
       meting.setAttribute('order', 'list');
-      meting.setAttribute('autoplay', 'false');
+      meting.setAttribute('autoplay', 'true');
       meting.setAttribute('fixed', 'false');
       meting.setAttribute('mini', 'false');
       meting.setAttribute('mutex', 'true');
@@ -952,7 +952,7 @@
       });
     });
 
-    mountPlaylist(root);
+    startPlaylistAutoplay(root, { initial: true });
     setupBackgroundRotation(root, state);
     render();
 

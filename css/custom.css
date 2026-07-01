@@ -1821,6 +1821,11 @@ html.ap-pomodoro-mode #ap-bgm-player {
   display: none !important;
 }
 
+body:has(.ap-pomodoro-page) #footer,
+html.ap-pomodoro-mode #footer {
+  display: none !important;
+}
+
 html.ap-pomodoro-popover-open,
 html.ap-pomodoro-popover-open body {
   overflow: hidden;
