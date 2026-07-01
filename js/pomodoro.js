@@ -17,10 +17,15 @@
     intervalMax: 60 * 60 * 1000,
     fade: 900
   };
+  var defaultMode = 'hour2';
   var modes = {
-    focus: { label: '专注', seconds: 25 * 60, next: 'short' },
-    short: { label: '短休', seconds: 5 * 60, next: 'focus' },
-    long: { label: '长休', seconds: 15 * 60, next: 'focus' }
+    hour2: { label: '2小时', seconds: 2 * 60 * 60 },
+    hour3: { label: '3小时', seconds: 3 * 60 * 60 },
+    hour4: { label: '4小时', seconds: 4 * 60 * 60 },
+    hour5: { label: '5小时', seconds: 5 * 60 * 60 },
+    hour6: { label: '6小时', seconds: 6 * 60 * 60 },
+    hour7: { label: '7小时', seconds: 7 * 60 * 60 },
+    hour8: { label: '8小时', seconds: 8 * 60 * 60 }
   };
 
   function pad(value) {
@@ -29,7 +34,15 @@
 
   function formatTime(seconds) {
     var safeSeconds = Math.max(0, Math.ceil(seconds));
-    return pad(Math.floor(safeSeconds / 60)) + ':' + pad(safeSeconds % 60);
+    var hours = Math.floor(safeSeconds / 3600);
+    var minutes = Math.floor((safeSeconds % 3600) / 60);
+    var secondsPart = safeSeconds % 60;
+
+    if (hours > 0) {
+      return pad(hours) + ':' + pad(minutes) + ':' + pad(secondsPart);
+    }
+
+    return pad(minutes) + ':' + pad(secondsPart);
   }
 
   function toPositiveInt(value, fallback, max) {
@@ -702,8 +715,8 @@
     var modeButtons = root.querySelectorAll('[data-ap-pomodoro-mode]');
     var progressLength = 603.19;
     var state = {
-      mode: 'focus',
-      remaining: modes.focus.seconds,
+      mode: defaultMode,
+      remaining: modes[defaultMode].seconds,
       running: false,
       endAt: 0,
       intervalId: 0,
@@ -739,8 +752,8 @@
         state.miniButton.innerHTML = [
           '<span class="ap-pomodoro-mini-tomato" aria-hidden="true"></span>',
           '<span class="ap-pomodoro-mini-copy">',
-          '<strong data-ap-pomodoro-mini-time>25:00</strong>',
-          '<span data-ap-pomodoro-mini-label>专注中</span>',
+          '<strong data-ap-pomodoro-mini-time>02:00:00</strong>',
+          '<span data-ap-pomodoro-mini-label>2小时中</span>',
           '</span>'
         ].join('');
         state.miniTimeEl = state.miniButton.querySelector('[data-ap-pomodoro-mini-time]');
@@ -875,15 +888,8 @@
       stopTicking();
       setPanelMode('normal');
 
-      if (completedMode === 'focus' && state.round % 4 === 0) {
-        setMode('long', false);
-      } else {
-        setMode(modes[completedMode].next, false);
-      }
-
-      if (completedMode === 'focus') {
-        state.round += 1;
-      }
+      state.remaining = duration();
+      state.round += 1;
 
       setStatus(modes[completedMode].label + '完成，准备开始' + modes[state.mode].label);
       render();
