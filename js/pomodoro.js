@@ -698,6 +698,11 @@
       backgroundContainer: null,
       backgroundLayers: [],
       backgroundVisibleLayer: 0,
+      miniButton: null,
+      miniTimeEl: null,
+      miniLabelEl: null,
+      minimizeButton: null,
+      panelMode: 'normal',
       round: 1
     };
 
@@ -707,6 +712,65 @@
 
     function setStatus(text) {
       if (statusEl) statusEl.textContent = text;
+    }
+
+    function ensureMiniTimer() {
+      if (!state.miniButton) {
+        state.miniButton = document.createElement('button');
+        state.miniButton.type = 'button';
+        state.miniButton.className = 'ap-pomodoro-mini';
+        state.miniButton.setAttribute('aria-label', '打开番茄钟');
+        state.miniButton.innerHTML = [
+          '<span class="ap-pomodoro-mini-tomato" aria-hidden="true"></span>',
+          '<span class="ap-pomodoro-mini-copy">',
+          '<strong data-ap-pomodoro-mini-time>25:00</strong>',
+          '<span data-ap-pomodoro-mini-label>专注中</span>',
+          '</span>'
+        ].join('');
+        state.miniTimeEl = state.miniButton.querySelector('[data-ap-pomodoro-mini-time]');
+        state.miniLabelEl = state.miniButton.querySelector('[data-ap-pomodoro-mini-label]');
+        state.miniButton.addEventListener('click', function () {
+          setPanelMode('popover');
+        });
+        root.appendChild(state.miniButton);
+      }
+
+      if (!state.minimizeButton) {
+        state.minimizeButton = document.createElement('button');
+        state.minimizeButton.type = 'button';
+        state.minimizeButton.className = 'ap-pomodoro-minimize';
+        state.minimizeButton.setAttribute('data-ap-pomodoro-minimize', 'true');
+        state.minimizeButton.innerHTML = '<i class="fas fa-compress-alt" aria-hidden="true"></i><span>收起</span>';
+        state.minimizeButton.addEventListener('click', function () {
+          setPanelMode(state.running ? 'minimized' : 'normal');
+        });
+
+        var hero = root.querySelector('.ap-pomodoro-hero');
+        if (hero) {
+          hero.appendChild(state.minimizeButton);
+        } else {
+          root.appendChild(state.minimizeButton);
+        }
+      }
+    }
+
+    function updateMiniTimer() {
+      ensureMiniTimer();
+      if (state.miniTimeEl) state.miniTimeEl.textContent = formatTime(state.remaining);
+      if (state.miniLabelEl) state.miniLabelEl.textContent = modes[state.mode].label + (state.running ? '中' : '暂停');
+    }
+
+    function setPanelMode(mode) {
+      ensureMiniTimer();
+
+      if (mode === 'minimized' && !state.running) {
+        mode = 'normal';
+      }
+
+      root.classList.toggle('is-minimized', mode === 'minimized');
+      root.classList.toggle('is-popover-open', mode === 'popover');
+      document.documentElement.classList.toggle('ap-pomodoro-popover-open', mode === 'popover');
+      state.panelMode = mode;
     }
 
     function updateStartButton() {
@@ -732,6 +796,8 @@
       });
 
       updateStartButton();
+      root.classList.toggle('is-timer-running', state.running);
+      updateMiniTimer();
     }
 
     function stopTicking() {
@@ -746,6 +812,7 @@
       state.remaining = Math.max(0, (state.endAt - Date.now()) / 1000);
       state.running = false;
       stopTicking();
+      setPanelMode('normal');
       setStatus(modes[state.mode].label + '已暂停');
       render();
     }
@@ -754,6 +821,7 @@
       var completedMode = state.mode;
       state.running = false;
       stopTicking();
+      setPanelMode('normal');
 
       if (completedMode === 'focus' && state.round % 4 === 0) {
         setMode('long', false);
@@ -792,11 +860,13 @@
       state.intervalId = window.setInterval(tick, 250);
       playFocusPlaylist(root);
       tick();
+      setPanelMode('minimized');
     }
 
     function reset() {
       state.running = false;
       stopTicking();
+      setPanelMode('normal');
       state.remaining = duration();
       setStatus('准备开始' + modes[state.mode].label);
       render();
@@ -806,6 +876,7 @@
       if (!modes[mode]) return;
       state.running = false;
       stopTicking();
+      setPanelMode('normal');
       state.mode = mode;
       state.remaining = duration();
       if (resetRound) state.round = 1;
@@ -853,8 +924,20 @@
         if (state.backgroundContainer && state.backgroundContainer.parentNode) {
           state.backgroundContainer.parentNode.removeChild(state.backgroundContainer);
         }
-        state.backgroundContainer = null;
-        clearAutoplayGestureFallback(root);
+      state.backgroundContainer = null;
+      clearAutoplayGestureFallback(root);
+        if (state.miniButton && state.miniButton.parentNode) {
+          state.miniButton.parentNode.removeChild(state.miniButton);
+        }
+        if (state.minimizeButton && state.minimizeButton.parentNode) {
+          state.minimizeButton.parentNode.removeChild(state.minimizeButton);
+        }
+        state.miniButton = null;
+        state.miniTimeEl = null;
+        state.miniLabelEl = null;
+        state.minimizeButton = null;
+        document.documentElement.classList.remove('ap-pomodoro-popover-open');
+        root.classList.remove('is-minimized', 'is-popover-open', 'is-timer-running');
         root.classList.remove('is-bg-fading');
         delete root.dataset.bgReady;
         root.dataset.ready = 'false';
