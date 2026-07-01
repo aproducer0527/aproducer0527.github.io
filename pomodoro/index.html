@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>番茄钟 | 阿P的小屋~</title><meta name="author" content="AProducer"><meta name="copyright" content="AProducer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Pomodoro Focus 番茄钟   本轮 1      专注 25 短休 5 长休 15       25:00  准备开始专注    开始专注    重置    跳过       Focus Playlist 网易云歌单  循环播放   正在加载歌单 14068521641">
+<meta property="og:type" content="website">
+<meta property="og:title" content="番茄钟">
+<meta property="og:url" content="https://aproducer0527.github.io/pomodoro/index.html">
+<meta property="og:site_name" content="阿P的小屋~">
+<meta property="og:description" content="Pomodoro Focus 番茄钟   本轮 1      专注 25 短休 5 长休 15       25:00  准备开始专注    开始专注    重置    跳过       Focus Playlist 网易云歌单  循环播放   正在加载歌单 14068521641">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aproducer0527.github.io/img/avatar.png">
+<meta property="article:published_time" content="2026-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-01T03:27:30.757Z">
+<meta property="article:author" content="AProducer">
+<meta property="article:tag" content="阿P, blog, Hexo, Butterfly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aproducer0527.github.io/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aproducer0527.github.io/pomodoro/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '番茄钟',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><script>document.documentElement.classList.add('ap-page-loading');</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/background.gif);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏❤</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div></div></div><div class="page type-pomodoro" id="body-wrap"><header class="not-home-page fixed" id="page-header" style="background-image: url(/img/background.gif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">阿P的小屋~</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/game/"><i class="fa-fw fas fa-gamepad"></i><span> 小游戏❤</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">番茄钟</h1></div></header><main class="layout hide-aside" id="content-inner"><div id="page"><div class="container" id="article-container"><div class="ap-pomodoro-page" data-ap-pomodoro data-playlist-id="14068521641" data-bg-prefixes="/img/%E7%95%AA%E8%8C%84%E9%92%9F,/video/%E7%95%AA%E8%8C%84%E9%92%9F" data-bg-exts=".jpg,.jpeg,.png,.webp,.mp4,.webm" data-bg-max="24" data-bg-interval-min="1800000" data-bg-interval-max="3600000">
+<section class="ap-pomodoro-shell">
+<div class="ap-pomodoro-hero">
+<div>
+<p class="ap-pomodoro-kicker">Pomodoro Focus</p>
+<h2>番茄钟</h2>
+</div>
+<div class="ap-pomodoro-round">
+<span>本轮</span>
+<strong data-ap-pomodoro-round>1</strong>
+</div>
+</div>
+<div class="ap-pomodoro-main">
+<div class="ap-pomodoro-panel">
+<div class="ap-pomodoro-modes" role="group" aria-label="番茄钟模式">
+<button class="is-active" type="button" data-ap-pomodoro-mode="focus">专注 25</button>
+<button type="button" data-ap-pomodoro-mode="short">短休 5</button>
+<button type="button" data-ap-pomodoro-mode="long">长休 15</button>
+</div>
+<div class="ap-pomodoro-dial" aria-live="polite">
+<svg viewBox="0 0 220 220" aria-hidden="true">
+<circle class="ap-pomodoro-track" cx="110" cy="110" r="96"></circle>
+<circle class="ap-pomodoro-progress" cx="110" cy="110" r="96" data-ap-pomodoro-progress></circle>
+</svg>
+<div class="ap-pomodoro-time" data-ap-pomodoro-time>25:00</div>
+</div>
+<div class="ap-pomodoro-status" data-ap-pomodoro-status>准备开始专注</div>
+<div class="ap-pomodoro-actions">
+<button class="ap-pomodoro-primary" type="button" data-ap-pomodoro-start>
+<i class="fas fa-play"></i>
+<span>开始专注</span>
+</button>
+<button type="button" data-ap-pomodoro-reset>
+<i class="fas fa-rotate-left"></i>
+<span>重置</span>
+</button>
+<button type="button" data-ap-pomodoro-skip>
+<i class="fas fa-forward-step"></i>
+<span>跳过</span>
+</button>
+</div>
+</div>
+<aside class="ap-pomodoro-player-card">
+<div class="ap-pomodoro-player-head">
+<div>
+<p class="ap-pomodoro-kicker">Focus Playlist</p>
+<h3>网易云歌单</h3>
+</div>
+<span>循环播放</span>
+</div>
+<div class="ap-pomodoro-player" data-ap-pomodoro-player>
+<div class="ap-pomodoro-player-loading" data-ap-pomodoro-player-status>正在加载歌单 14068521641</div>
+<div class="ap-pomodoro-meting" data-ap-pomodoro-meting></div>
+</div>
+</aside>
+</div>
+</section>
+</div>
+</div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By AProducer</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div><div class="footer_custom_text">保持记录，持续学习。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><div class="ap-bgm-player" id="ap-bgm-player">
+  <button class="ap-bgm-toggle" type="button" aria-label="打开音乐播放器" aria-expanded="false">
+    <i class="fas fa-music"></i>
+  </button>
+  <div class="ap-bgm-panel" aria-label="音乐播放器">
+    <div class="ap-bgm-head">
+      <div>
+        <div class="ap-bgm-label">Now Playing</div>
+        <div class="ap-bgm-title" id="ap-bgm-title">网易云音乐</div>
+        <div class="ap-bgm-subtitle" id="ap-bgm-subtitle">点击左侧按钮展开</div>
+      </div>
+      <button class="ap-bgm-close" type="button" aria-label="收起音乐播放器">
+        <i class="fas fa-angle-left"></i>
+      </button>
+    </div>
+    <audio id="ap-bgm-audio" class="ap-bgm-audio" controls preload="metadata"></audio>
+    <div class="ap-bgm-actions">
+      <button class="ap-bgm-prev" type="button" aria-label="上一首"><i class="fas fa-backward-step"></i></button>
+      <button class="ap-bgm-next" type="button" aria-label="下一首"><i class="fas fa-forward-step"></i></button>
+    </div>
+    <div class="ap-bgm-list" id="ap-bgm-list"></div>
+  </div>
+</div>
+<script src="/js/bgm-player.js"></script><script src="/js/pomodoro.js"></script><script src="/js/page-loader.js"></script><script src="/js/internet-angel.js"></script><script src="/js/cat-runner.js"></script><script src="/js/day-night-context.js"></script><script src="/js/day-text-rain.js"></script><script>
+  window.AP_WEATHER_CONFIG = {
+    amapKey: 'f8f64cea5340d9e4676c1ae7efec02d4',
+    qweatherKey: '4745d0ad95ae400ebd4ded83acfee8ee',
+    qweatherToken: '',
+    // 如果提示 Invalid Host，把这里换成和风控制台里的 API Host
+    qweatherHost: 'https://mp6hf24nuq.re.qweatherapi.com',
+    qweatherGeoHost: 'https://geoapi.qweather.com',
+    cacheMinutes: 30
+  };
+</script>
+<script src="/js/clock.js"></script><script src="/js/click-effects.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
