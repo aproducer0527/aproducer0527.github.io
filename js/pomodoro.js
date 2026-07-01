@@ -703,6 +703,8 @@
       miniLabelEl: null,
       minimizeButton: null,
       panelMode: 'normal',
+      popoverCloseTimeoutId: 0,
+      popoverOutsideHandler: null,
       round: 1
     };
 
@@ -760,6 +762,37 @@
       if (state.miniLabelEl) state.miniLabelEl.textContent = modes[state.mode].label + (state.running ? '中' : '暂停');
     }
 
+    function closePopover() {
+      setPanelMode(state.running ? 'minimized' : 'normal');
+    }
+
+    function clearPopoverAutoClose() {
+      if (state.popoverCloseTimeoutId) {
+        window.clearTimeout(state.popoverCloseTimeoutId);
+        state.popoverCloseTimeoutId = 0;
+      }
+
+      if (state.popoverOutsideHandler) {
+        document.removeEventListener('pointerdown', state.popoverOutsideHandler, true);
+        state.popoverOutsideHandler = null;
+      }
+    }
+
+    function bindPopoverAutoClose() {
+      clearPopoverAutoClose();
+
+      state.popoverOutsideHandler = function (event) {
+        var shell = root.querySelector('.ap-pomodoro-shell');
+        if (!root.classList.contains('is-popover-open')) return;
+        if (shell && shell.contains(event.target)) return;
+        if (state.miniButton && state.miniButton.contains(event.target)) return;
+        closePopover();
+      };
+
+      document.addEventListener('pointerdown', state.popoverOutsideHandler, true);
+      state.popoverCloseTimeoutId = window.setTimeout(closePopover, 15000);
+    }
+
     function setPanelMode(mode) {
       ensureMiniTimer();
 
@@ -767,10 +800,15 @@
         mode = 'normal';
       }
 
+      clearPopoverAutoClose();
       root.classList.toggle('is-minimized', mode === 'minimized');
       root.classList.toggle('is-popover-open', mode === 'popover');
       document.documentElement.classList.toggle('ap-pomodoro-popover-open', mode === 'popover');
       state.panelMode = mode;
+
+      if (mode === 'popover') {
+        bindPopoverAutoClose();
+      }
     }
 
     function updateStartButton() {
@@ -924,8 +962,9 @@
         if (state.backgroundContainer && state.backgroundContainer.parentNode) {
           state.backgroundContainer.parentNode.removeChild(state.backgroundContainer);
         }
-      state.backgroundContainer = null;
-      clearAutoplayGestureFallback(root);
+        state.backgroundContainer = null;
+        clearAutoplayGestureFallback(root);
+        clearPopoverAutoClose();
         if (state.miniButton && state.miniButton.parentNode) {
           state.miniButton.parentNode.removeChild(state.miniButton);
         }

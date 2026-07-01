@@ -1830,7 +1830,9 @@ html.ap-pomodoro-mode #web_bg {
   opacity: 0;
 }
 
+body:has(.ap-pomodoro-page) #page-header,
 html.ap-pomodoro-mode #page-header {
+  display: none !important;
   background: transparent !important;
 }
 
