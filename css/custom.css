@@ -1870,19 +1870,13 @@ html.ap-pomodoro-mode .layout > div:first-child:not(.nc) {
   z-index: -998;
   overflow: hidden;
   pointer-events: none;
-  --ap-pomodoro-bg-opacity: 0.76;
-  background: #fff4fb;
+  --ap-pomodoro-bg-opacity: 1;
+  background: transparent;
 }
 
 .ap-pomodoro-page-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 246, 252, 0.34)),
-    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.26), transparent 0 260px);
+  display: none;
+  content: none;
 }
 
 .ap-pomodoro-shell {
@@ -1917,9 +1911,9 @@ html.ap-pomodoro-mode .layout > div:first-child:not(.nc) {
   position: fixed;
   inset: 0;
   z-index: 2140;
-  background: rgba(255, 235, 246, 0.26);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .ap-pomodoro-page.is-popover-open .ap-pomodoro-shell {
@@ -2048,7 +2042,7 @@ html.ap-pomodoro-mode .layout > div:first-child:not(.nc) {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transform: scale(1.02);
+  transform: none;
   transition: opacity 900ms ease;
 }
 
@@ -2295,18 +2289,17 @@ html.ap-night-mode .ap-pomodoro-shell {
 }
 
 html.ap-night-mode .ap-pomodoro-page-bg {
-  --ap-pomodoro-bg-opacity: 0.68;
-  background: #15090c;
+  --ap-pomodoro-bg-opacity: 1;
+  background: transparent;
 }
 
 html.ap-night-mode .ap-pomodoro-page-bg::after {
-  background:
-    linear-gradient(180deg, rgba(20, 6, 10, 0.18), rgba(20, 6, 10, 0.44)),
-    radial-gradient(circle at 18% 12%, rgba(255, 80, 110, 0.18), transparent 0 260px);
+  display: none;
+  content: none;
 }
 
 html.ap-night-mode .ap-pomodoro-page.is-popover-open::before {
-  background: rgba(8, 3, 5, 0.42);
+  background: transparent;
 }
 
 html.ap-night-mode .ap-pomodoro-mini,

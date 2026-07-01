@@ -593,6 +593,65 @@
     bindAutoplayGestureFallback(root);
   }
 
+  function attemptPlaylistPlay(root, audio, options) {
+    options = options || {};
+    bindPlaylistAutoSkip(root);
+
+    if (!audio) {
+      setPlayerStatus(root, '播放器加载中，稍后将自动播放');
+      return;
+    }
+
+    if (!audio.paused) {
+      delete root.dataset.playerSkipTries;
+      setPlayerStatus(root, '歌单自动播放中');
+      return;
+    }
+
+    var muted = audio.muted;
+    if (options.initial) {
+      audio.muted = true;
+    } else {
+      audio.muted = false;
+    }
+
+    clickPlaylistControl(root, '.aplayer-icon-play');
+
+    var playPromise = null;
+    if (audio.paused && typeof audio.play === 'function') {
+      try {
+        playPromise = audio.play();
+      } catch (error) {
+        handleAutoplayRejection(root, audio, error);
+        return;
+      }
+    }
+
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise
+        .then(function () {
+          restoreAutoplaySound(audio, options.initial ? muted : false);
+          delete root.dataset.playerSkipTries;
+          setPlayerStatus(root, '歌单自动播放中');
+        })
+        .catch(function (error) {
+          handleAutoplayRejection(root, audio, error);
+        });
+      return;
+    }
+
+    window.setTimeout(function () {
+      if (audio.paused) {
+        handleAutoplayRejection(root, audio, new Error('Autoplay blocked'));
+        return;
+      }
+
+      restoreAutoplaySound(audio, options.initial ? muted : false);
+      delete root.dataset.playerSkipTries;
+      setPlayerStatus(root, '歌单自动播放中');
+    }, 360);
+  }
+
   function startPlaylistAutoplay(root, options) {
     options = options || {};
 
@@ -601,62 +660,17 @@
         return waitForPlaylistPlayer(root, 8000);
       })
       .then(function (audio) {
-        bindPlaylistAutoSkip(root);
-        if (!audio) {
-          setPlayerStatus(root, '播放器加载中，稍后将自动播放');
-          return;
-        }
-
-        if (!audio.paused) {
-          delete root.dataset.playerSkipTries;
-          setPlayerStatus(root, '歌单自动播放中');
-          return;
-        }
-
-        var muted = audio.muted;
-        if (options.initial) {
-          audio.muted = true;
-        }
-
-        clickPlaylistControl(root, '.aplayer-icon-play');
-
-        var playPromise = null;
-        if (audio.paused && typeof audio.play === 'function') {
-          try {
-            playPromise = audio.play();
-          } catch (error) {
-            handleAutoplayRejection(root, audio, error);
-            return;
-          }
-        }
-
-        if (playPromise && typeof playPromise.then === 'function') {
-          playPromise
-            .then(function () {
-              restoreAutoplaySound(audio, muted);
-              delete root.dataset.playerSkipTries;
-              setPlayerStatus(root, '歌单自动播放中');
-            })
-            .catch(function (error) {
-              handleAutoplayRejection(root, audio, error);
-            });
-          return;
-        }
-
-        window.setTimeout(function () {
-          if (audio.paused) {
-            handleAutoplayRejection(root, audio, new Error('Autoplay blocked'));
-            return;
-          }
-
-          restoreAutoplaySound(audio, muted);
-          delete root.dataset.playerSkipTries;
-          setPlayerStatus(root, '歌单自动播放中');
-        }, 360);
+        attemptPlaylistPlay(root, audio, options);
       });
   }
 
   function playFocusPlaylist(root) {
+    var audio = getPlaylistAudio(root);
+    if (audio) {
+      attemptPlaylistPlay(root, audio, { fromTimer: true });
+      return;
+    }
+
     startPlaylistAutoplay(root, { fromTimer: true });
   }
 
