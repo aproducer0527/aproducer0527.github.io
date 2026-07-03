@@ -1509,6 +1509,272 @@ body,
   place-items: center;
 }
 
+.ap-desktop-pet {
+  position: fixed;
+  right: 20px;
+  bottom: 86px;
+  z-index: 2147482300;
+  width: 248px;
+  height: 318px;
+  pointer-events: none;
+}
+
+.ap-desktop-pet-stage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 224px;
+  height: 292px;
+  pointer-events: auto;
+}
+
+.ap-desktop-pet-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ap-desktop-pet-fallback {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  width: 92px;
+  height: 92px;
+  border: 1px solid rgba(255, 120, 200, 0.42);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 36% 26%, rgba(255, 255, 255, 0.78), transparent 0 20px),
+    linear-gradient(135deg, rgba(255, 106, 190, 0.94), rgba(129, 230, 255, 0.78));
+  box-shadow: 0 18px 38px rgba(255, 105, 190, 0.26);
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.ap-desktop-pet-face {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.24);
+  font-size: 18px;
+  text-shadow: 0 3px 10px rgba(130, 42, 94, 0.22);
+}
+
+.ap-desktop-pet.is-live2d-ready .ap-desktop-pet-fallback {
+  display: none;
+}
+
+.ap-desktop-pet-bubble {
+  position: absolute;
+  right: 96px;
+  bottom: 238px;
+  max-width: 180px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 158, 214, 0.4);
+  border-radius: 14px 14px 4px 14px;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 253, 0.88), rgba(255, 221, 243, 0.8)),
+    rgba(255, 255, 255, 0.72);
+  box-shadow: 0 14px 30px rgba(255, 105, 190, 0.16);
+  color: #7a315e;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.35;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(12px) saturate(1.12);
+  -webkit-backdrop-filter: blur(12px) saturate(1.12);
+}
+
+.ap-desktop-pet-bubble.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ap-daily-plan {
+  position: absolute;
+  right: 168px;
+  bottom: 76px;
+  width: min(340px, calc(100vw - 32px));
+  max-height: min(460px, calc(100vh - 120px));
+  padding: 16px;
+  overflow: auto;
+  border: 1px solid rgba(255, 158, 214, 0.42);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 253, 0.92), rgba(255, 221, 243, 0.86) 58%, rgba(207, 247, 255, 0.72)),
+    rgba(255, 255, 255, 0.78);
+  box-shadow: 0 22px 52px rgba(255, 105, 190, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.98);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  backdrop-filter: blur(18px) saturate(1.14);
+  -webkit-backdrop-filter: blur(18px) saturate(1.14);
+}
+
+.ap-desktop-pet.is-plan-open .ap-daily-plan {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.ap-daily-plan-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ap-daily-plan-head p {
+  margin: 0 0 4px;
+  color: rgba(255, 79, 172, 0.76);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ap-daily-plan-head h3 {
+  margin: 0;
+  color: #7a315e;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.ap-daily-plan-head span {
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border: 1px solid rgba(255, 139, 210, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.52);
+  color: rgba(122, 49, 94, 0.68);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.ap-daily-plan-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ap-daily-plan-form input {
+  min-width: 0;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 139, 210, 0.28);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #65435a;
+  font-size: 14px;
+  font-weight: 800;
+  outline: none;
+}
+
+.ap-daily-plan-form input:focus {
+  border-color: rgba(255, 79, 172, 0.56);
+  box-shadow: 0 0 0 3px rgba(255, 105, 190, 0.12);
+}
+
+.ap-daily-plan-form button {
+  min-height: 42px;
+  border: 1px solid rgba(255, 79, 172, 0.44);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 104, 190, 0.94), rgba(129, 230, 255, 0.84));
+  color: #fff;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.ap-daily-plan-list {
+  display: grid;
+  gap: 8px;
+  max-height: 270px;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+  list-style: none;
+}
+
+.ap-daily-plan-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px;
+  gap: 8px;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 8px 8px 10px;
+  border: 1px solid rgba(255, 139, 210, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.ap-daily-plan-list label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.ap-daily-plan-list input {
+  width: 16px;
+  height: 16px;
+  accent-color: #ff4fac;
+}
+
+.ap-daily-plan-list span {
+  min-width: 0;
+  color: #65435a;
+  font-size: 14px;
+  font-weight: 850;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.ap-daily-plan-list li.is-done span {
+  color: rgba(101, 67, 90, 0.46);
+  text-decoration: line-through;
+}
+
+.ap-daily-plan-list button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 139, 210, 0.24);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.52);
+  color: rgba(122, 49, 94, 0.58);
+  cursor: pointer;
+}
+
+.ap-daily-plan-list button:hover {
+  border-color: rgba(255, 79, 172, 0.42);
+  color: #ff4fac;
+}
+
+.ap-daily-plan-empty {
+  margin: 14px 0 0;
+  color: rgba(122, 49, 94, 0.56);
+  font-size: 13px;
+  font-weight: 850;
+  text-align: center;
+}
+
 .ap-mode-transition {
   position: fixed;
   inset: 0;
@@ -1793,6 +2059,35 @@ html.ap-night-mode .ap-context-menu button {
 html.ap-night-mode .ap-context-menu button:hover {
   background: rgba(255, 50, 70, 0.14);
   color: #ff6f7f;
+}
+
+html.ap-night-mode .ap-desktop-pet-bubble,
+html.ap-night-mode .ap-daily-plan {
+  border-color: rgba(255, 57, 78, 0.34);
+  background:
+    linear-gradient(135deg, rgba(21, 9, 12, 0.94), rgba(78, 9, 22, 0.86)),
+    rgba(12, 6, 8, 0.86);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 120, 120, 0.12);
+  color: rgba(255, 232, 232, 0.88);
+}
+
+html.ap-night-mode .ap-daily-plan-head h3,
+html.ap-night-mode .ap-daily-plan-list span {
+  color: rgba(255, 232, 232, 0.9);
+}
+
+html.ap-night-mode .ap-daily-plan-head span,
+html.ap-night-mode .ap-daily-plan-form input,
+html.ap-night-mode .ap-daily-plan-list li,
+html.ap-night-mode .ap-daily-plan-list button {
+  border-color: rgba(255, 57, 78, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 232, 232, 0.76);
+}
+
+html.ap-night-mode .ap-daily-plan-empty,
+html.ap-night-mode .ap-daily-plan-list li.is-done span {
+  color: rgba(255, 205, 205, 0.54);
 }
 
 html.ap-night-mode #page-header.full_page #site-title {
@@ -2363,6 +2658,39 @@ html.ap-night-mode .ap-pomodoro-player .aplayer {
 }
 
 @media (max-width: 560px) {
+  .ap-desktop-pet {
+    right: 10px;
+    bottom: 72px;
+    width: 178px;
+    height: 226px;
+  }
+
+  .ap-desktop-pet-stage {
+    width: 154px;
+    height: 204px;
+  }
+
+  .ap-desktop-pet-fallback {
+    width: 76px;
+    height: 76px;
+    border-radius: 22px;
+  }
+
+  .ap-desktop-pet-bubble {
+    right: 70px;
+    bottom: 178px;
+    max-width: 150px;
+    font-size: 11px;
+  }
+
+  .ap-daily-plan {
+    position: fixed;
+    right: 10px;
+    bottom: 70px;
+    width: calc(100vw - 20px);
+    max-height: min(430px, calc(100vh - 92px));
+  }
+
   .ap-pomodoro-page {
     width: min(100%, calc(100vw - 20px));
     padding-top: 16px;
