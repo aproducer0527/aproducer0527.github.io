@@ -1638,6 +1638,16 @@ body,
   transform: translateY(0) scale(1);
 }
 
+.ap-desktop-pet.is-plan-left .ap-daily-plan {
+  right: 168px;
+  left: auto;
+}
+
+.ap-desktop-pet.is-plan-right .ap-daily-plan {
+  right: auto;
+  left: 168px;
+}
+
 .ap-daily-plan-head {
   display: flex;
   align-items: flex-start;
@@ -2693,10 +2703,17 @@ html.ap-night-mode .ap-pomodoro-player .aplayer {
 
   .ap-daily-plan {
     position: fixed;
-    right: 10px;
+    right: auto;
+    left: 10px;
     bottom: 70px;
     width: calc(100vw - 20px);
     max-height: min(430px, calc(100vh - 92px));
+  }
+
+  .ap-desktop-pet.is-plan-left .ap-daily-plan,
+  .ap-desktop-pet.is-plan-right .ap-daily-plan {
+    right: auto;
+    left: 10px;
   }
 
   .ap-pomodoro-page {

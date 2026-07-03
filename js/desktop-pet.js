@@ -115,6 +115,16 @@
     return clampPetPosition({ left: left, top: top }, viewport, size, margin);
   }
 
+  function getPlanPanelSide(petRect, viewport) {
+    var viewportWidth = Math.max(0, Number(viewport && viewport.width) || 0);
+    var petLeft = Number(petRect && petRect.left) || 0;
+    var petWidth = Math.max(1, Number(petRect && petRect.width) || 1);
+    var petCenter = petLeft + petWidth / 2;
+
+    if (!viewportWidth) return 'left';
+    return petCenter < viewportWidth / 2 ? 'right' : 'left';
+  }
+
   function getLive2DBaseBounds(model) {
     var scaleX = model && model.scale && Number.isFinite(Number(model.scale.x)) && Number(model.scale.x) !== 0
       ? Math.abs(Number(model.scale.x))
@@ -187,7 +197,8 @@
     fitLive2DModel: fitLive2DModel,
     getLive2DConfig: getLive2DConfig,
     clampPetPosition: clampPetPosition,
-    normalizePetPosition: normalizePetPosition
+    normalizePetPosition: normalizePetPosition,
+    getPlanPanelSide: getPlanPanelSide
   };
 
   global.APDesktopPetUtils = utils;
@@ -435,6 +446,15 @@
     });
   }
 
+  function applyPlanPanelSide() {
+    if (!state.root) return;
+
+    var side = getPlanPanelSide(state.root.getBoundingClientRect(), getViewportSize());
+    state.root.classList.remove('is-plan-left');
+    state.root.classList.remove('is-plan-right');
+    state.root.classList.add(side === 'right' ? 'is-plan-right' : 'is-plan-left');
+  }
+
   function openPlanPanel() {
     if (!state.panel) return;
 
@@ -442,6 +462,7 @@
     if (state.dateLabel) state.dateLabel.textContent = formatDateKey(new Date());
     renderPlans();
 
+    applyPlanPanelSide();
     state.root.classList.add('is-plan-open');
     if (state.input) {
       global.setTimeout(function () {
@@ -451,7 +472,11 @@
   }
 
   function closePlanPanel() {
-    if (state.root) state.root.classList.remove('is-plan-open');
+    if (!state.root) return;
+
+    state.root.classList.remove('is-plan-open');
+    state.root.classList.remove('is-plan-left');
+    state.root.classList.remove('is-plan-right');
   }
 
   function addPlan(text) {
