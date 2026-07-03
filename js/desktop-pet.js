@@ -6,10 +6,22 @@
 
   var CDN = {
     pixi: 'https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js',
-    live2dCore2: 'https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js',
-    cubism2: 'https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism2.min.js',
-    model: 'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@0.4.0/test/assets/shizuku/shizuku.model.json'
+    cubismCore: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
+    cubismRuntime: 'https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js',
+    model: '/live2d/xiaoyue/xiaoyue.model3.json'
   };
+  var PET_POSITION_KEY = 'ap-desktop-pet-position-v1';
+  var PET_DRAG_DELAY = 180;
+  var PET_EDGE_MARGIN = 8;
+
+  function getLive2DConfig() {
+    return {
+      pixi: CDN.pixi,
+      cubismCore: CDN.cubismCore,
+      cubismRuntime: CDN.cubismRuntime,
+      model: CDN.model
+    };
+  }
 
   function pad(value) {
     return String(value).padStart(2, '0');
@@ -74,6 +86,33 @@
     return normalizePlanList(list).filter(function (item) {
       return item.id !== id;
     });
+  }
+
+  function clampPetPosition(position, viewport, size, margin) {
+    var edge = Number.isFinite(Number(margin)) ? Number(margin) : PET_EDGE_MARGIN;
+    var viewportWidth = Math.max(0, Number(viewport && viewport.width) || 0);
+    var viewportHeight = Math.max(0, Number(viewport && viewport.height) || 0);
+    var petWidth = Math.max(1, Number(size && size.width) || 1);
+    var petHeight = Math.max(1, Number(size && size.height) || 1);
+    var left = Number(position && position.left) || 0;
+    var top = Number(position && position.top) || 0;
+    var maxLeft = Math.max(edge, viewportWidth - petWidth - edge);
+    var maxTop = Math.max(edge, viewportHeight - petHeight - edge);
+
+    return {
+      left: Math.min(Math.max(edge, Math.round(left)), maxLeft),
+      top: Math.min(Math.max(edge, Math.round(top)), maxTop)
+    };
+  }
+
+  function normalizePetPosition(value, viewport, size, margin) {
+    if (!value || typeof value !== 'object') return null;
+
+    var left = Number(value.left);
+    var top = Number(value.top);
+    if (!Number.isFinite(left) || !Number.isFinite(top)) return null;
+
+    return clampPetPosition({ left: left, top: top }, viewport, size, margin);
   }
 
   function getLive2DBaseBounds(model) {
@@ -145,7 +184,10 @@
     normalizePlanList: normalizePlanList,
     togglePlanDone: togglePlanDone,
     removePlanItem: removePlanItem,
-    fitLive2DModel: fitLive2DModel
+    fitLive2DModel: fitLive2DModel,
+    getLive2DConfig: getLive2DConfig,
+    clampPetPosition: clampPetPosition,
+    normalizePetPosition: normalizePetPosition
   };
 
   global.APDesktopPetUtils = utils;
@@ -171,7 +213,13 @@
     rafId: 0,
     pendingPointer: null,
     outsideClickHandler: null,
-    resizeHandler: null
+    resizeHandler: null,
+    positionResizeHandler: null,
+    dragCandidate: null,
+    dragState: null,
+    dragTimer: null,
+    petPosition: null,
+    suppressFallbackClick: false
   };
 
   function todayKey() {
@@ -207,6 +255,82 @@
     }, 3200);
   }
 
+  function getViewportSize() {
+    var docEl = document.documentElement || {};
+    return {
+      width: global.innerWidth || docEl.clientWidth || 0,
+      height: global.innerHeight || docEl.clientHeight || 0
+    };
+  }
+
+  function getPetSize() {
+    if (!state.root) return { width: 1, height: 1 };
+
+    var rect = state.root.getBoundingClientRect();
+    return {
+      width: rect.width || state.root.offsetWidth || 1,
+      height: rect.height || state.root.offsetHeight || 1
+    };
+  }
+
+  function applyPetPosition(position) {
+    if (!state.root) return null;
+
+    var normalized = normalizePetPosition(position, getViewportSize(), getPetSize());
+    if (!normalized) return null;
+
+    state.root.style.left = normalized.left + 'px';
+    state.root.style.top = normalized.top + 'px';
+    state.root.style.right = 'auto';
+    state.root.style.bottom = 'auto';
+    state.petPosition = normalized;
+    return normalized;
+  }
+
+  function savePetPosition(position) {
+    if (!position) return;
+
+    try {
+      global.localStorage.setItem(PET_POSITION_KEY, JSON.stringify({
+        left: position.left,
+        top: position.top
+      }));
+    } catch (error) {}
+  }
+
+  function readSavedPetPosition() {
+    try {
+      return JSON.parse(global.localStorage.getItem(PET_POSITION_KEY) || 'null');
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function restorePetPosition() {
+    var savedPosition = normalizePetPosition(readSavedPetPosition(), getViewportSize(), getPetSize());
+    if (savedPosition) applyPetPosition(savedPosition);
+  }
+
+  function clampCurrentPetPosition() {
+    if (!state.root) return;
+
+    var currentPosition = state.petPosition;
+    if (!currentPosition) {
+      var rect = state.root.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      currentPosition = { left: rect.left, top: rect.top };
+    }
+
+    var nextPosition = applyPetPosition(currentPosition);
+    if (nextPosition) savePetPosition(nextPosition);
+  }
+
+  function clearDragTimer() {
+    if (!state.dragTimer) return;
+    global.clearTimeout(state.dragTimer);
+    state.dragTimer = null;
+  }
+
   function loadScript(src, key) {
     var existing = document.querySelector('script[data-ap-desktop-pet-script="' + key + '"]');
     if (existing) {
@@ -238,10 +362,10 @@
   function ensureLive2DAssets() {
     return loadScript(CDN.pixi, 'pixi')
       .then(function () {
-        return loadScript(CDN.live2dCore2, 'live2d-core2');
+        return loadScript(CDN.cubismCore, 'cubism-core');
       })
       .then(function () {
-        return loadScript(CDN.cubism2, 'cubism2');
+        return loadScript(CDN.cubismRuntime, 'cubism4');
       });
   }
 
@@ -346,7 +470,12 @@
       openPlanPanel();
     });
 
-    state.fallback.addEventListener('click', function () {
+    state.fallback.addEventListener('click', function (event) {
+      if (state.suppressFallbackClick) {
+        event.preventDefault();
+        return;
+      }
+
       openPlanPanel();
     });
 
@@ -390,6 +519,102 @@
     });
   }
 
+  function activatePetDrag() {
+    if (!state.dragCandidate || !state.root) return;
+
+    state.dragState = {
+      pointerId: state.dragCandidate.pointerId,
+      startLeft: state.dragCandidate.startLeft,
+      startTop: state.dragCandidate.startTop,
+      startX: state.dragCandidate.startX,
+      startY: state.dragCandidate.startY
+    };
+    state.root.classList.add('is-dragging');
+    applyPetPosition({
+      left: state.dragState.startLeft + state.dragCandidate.lastX - state.dragState.startX,
+      top: state.dragState.startTop + state.dragCandidate.lastY - state.dragState.startY
+    });
+  }
+
+  function beginPetDrag(event) {
+    if (!state.root || !state.stage || event.button !== 0 || state.root.classList.contains('is-plan-open')) return;
+    if (event.target.closest('[data-ap-daily-plan]')) return;
+
+    clearDragTimer();
+
+    var rect = state.root.getBoundingClientRect();
+    state.dragCandidate = {
+      pointerId: event.pointerId,
+      startLeft: rect.left,
+      startTop: rect.top,
+      startX: event.clientX,
+      startY: event.clientY,
+      lastX: event.clientX,
+      lastY: event.clientY
+    };
+
+    if (state.stage.setPointerCapture) {
+      try {
+        state.stage.setPointerCapture(event.pointerId);
+      } catch (error) {}
+    }
+
+    state.dragTimer = global.setTimeout(function () {
+      state.dragTimer = null;
+      activatePetDrag();
+    }, PET_DRAG_DELAY);
+  }
+
+  function movePetDrag(event) {
+    if (state.dragCandidate && event.pointerId === state.dragCandidate.pointerId) {
+      state.dragCandidate.lastX = event.clientX;
+      state.dragCandidate.lastY = event.clientY;
+    }
+
+    if (!state.dragState || event.pointerId !== state.dragState.pointerId) return;
+
+    event.preventDefault();
+    applyPetPosition({
+      left: state.dragState.startLeft + event.clientX - state.dragState.startX,
+      top: state.dragState.startTop + event.clientY - state.dragState.startY
+    });
+  }
+
+  function endPetDrag(event) {
+    var wasDragging = Boolean(state.dragState && event.pointerId === state.dragState.pointerId);
+
+    clearDragTimer();
+    state.dragCandidate = null;
+
+    if (!wasDragging) return;
+
+    if (state.stage && state.stage.releasePointerCapture) {
+      try {
+        state.stage.releasePointerCapture(event.pointerId);
+      } catch (error) {}
+    }
+
+    state.dragState = null;
+    if (state.root) state.root.classList.remove('is-dragging');
+    savePetPosition(state.petPosition);
+    state.suppressFallbackClick = true;
+    global.setTimeout(function () {
+      state.suppressFallbackClick = false;
+    }, 80);
+  }
+
+  function bindPetDragEvents() {
+    state.stage.addEventListener('pointerdown', beginPetDrag);
+    state.dragMoveHandler = movePetDrag;
+    state.dragEndHandler = endPetDrag;
+    state.positionResizeHandler = clampCurrentPetPosition;
+
+    document.addEventListener('pointermove', state.dragMoveHandler, { passive: false });
+    document.addEventListener('pointerup', state.dragEndHandler);
+    document.addEventListener('pointercancel', state.dragEndHandler);
+    global.addEventListener('resize', state.positionResizeHandler);
+  }
+
   function resizeLive2D() {
     if (!state.app || !state.model || !state.stage) return;
 
@@ -414,6 +639,8 @@
 
   function bindPointerFocus() {
     document.addEventListener('pointermove', function (event) {
+      if (state.dragCandidate || state.dragState) return;
+
       state.pendingPointer = { x: event.clientX, y: event.clientY };
       if (state.rafId) return;
 
@@ -478,10 +705,28 @@
       state.resizeHandler = null;
     }
 
+    if (state.positionResizeHandler) {
+      global.removeEventListener('resize', state.positionResizeHandler);
+      state.positionResizeHandler = null;
+    }
+
     if (state.outsideClickHandler) {
       document.removeEventListener('pointerdown', state.outsideClickHandler, true);
       state.outsideClickHandler = null;
     }
+
+    if (state.dragMoveHandler) {
+      document.removeEventListener('pointermove', state.dragMoveHandler);
+      state.dragMoveHandler = null;
+    }
+
+    if (state.dragEndHandler) {
+      document.removeEventListener('pointerup', state.dragEndHandler);
+      document.removeEventListener('pointercancel', state.dragEndHandler);
+      state.dragEndHandler = null;
+    }
+
+    clearDragTimer();
 
     if (state.rafId) {
       global.cancelAnimationFrame(state.rafId);
@@ -506,8 +751,10 @@
     if (document.querySelector('[data-ap-desktop-pet]')) return;
 
     createRoot();
+    restorePetPosition();
     state.plans = readPlans();
     bindPlanEvents();
+    bindPetDragEvents();
     renderPlans();
     initLive2D();
   }

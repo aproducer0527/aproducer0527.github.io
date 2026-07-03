@@ -1525,7 +1525,11 @@ body,
   bottom: 0;
   width: 224px;
   height: 292px;
+  cursor: grab;
   pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .ap-desktop-pet-canvas {
@@ -1555,6 +1559,10 @@ body,
   font-weight: 900;
   letter-spacing: 0;
   line-height: 1.1;
+}
+
+.ap-desktop-pet.is-dragging .ap-desktop-pet-stage {
+  cursor: grabbing;
 }
 
 .ap-desktop-pet-face {
