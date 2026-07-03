@@ -76,13 +76,76 @@
     });
   }
 
+  function getLive2DBaseBounds(model) {
+    var scaleX = model && model.scale && Number.isFinite(Number(model.scale.x)) && Number(model.scale.x) !== 0
+      ? Math.abs(Number(model.scale.x))
+      : 1;
+    var scaleY = model && model.scale && Number.isFinite(Number(model.scale.y)) && Number(model.scale.y) !== 0
+      ? Math.abs(Number(model.scale.y))
+      : 1;
+    var localBounds = null;
+
+    if (model && typeof model.getLocalBounds === 'function') {
+      try {
+        localBounds = model.getLocalBounds();
+      } catch (error) {
+        localBounds = null;
+      }
+    }
+
+    var baseWidth = localBounds && Number.isFinite(Number(localBounds.width)) && Number(localBounds.width) > 0
+      ? Number(localBounds.width)
+      : Number(model && model.width) / scaleX;
+    var baseHeight = localBounds && Number.isFinite(Number(localBounds.height)) && Number(localBounds.height) > 0
+      ? Number(localBounds.height)
+      : Number(model && model.height) / scaleY;
+
+    return {
+      x: localBounds && Number.isFinite(Number(localBounds.x)) ? Number(localBounds.x) : 0,
+      y: localBounds && Number.isFinite(Number(localBounds.y)) ? Number(localBounds.y) : 0,
+      width: Math.max(1, baseWidth || 1),
+      height: Math.max(1, baseHeight || 1)
+    };
+  }
+
+  function fitLive2DModel(model, viewportWidth, viewportHeight) {
+    var width = Math.max(1, Math.floor(Number(viewportWidth) || 1));
+    var height = Math.max(1, Math.floor(Number(viewportHeight) || 1));
+    var bounds = getLive2DBaseBounds(model);
+    var scale = Math.min(width / bounds.width, height / bounds.height) * 0.96;
+
+    if (Number.isFinite(scale) && scale > 0 && model && model.scale && typeof model.scale.set === 'function') {
+      model.scale.set(scale);
+    }
+
+    if (model && model.anchor && typeof model.anchor.set === 'function') {
+      model.anchor.set(0.5, 1);
+    } else if (model && model.pivot && typeof model.pivot.set === 'function') {
+      model.pivot.set(bounds.x + bounds.width / 2, bounds.y + bounds.height);
+    }
+
+    if (model) {
+      model.x = width / 2;
+      model.y = height * 0.98;
+    }
+
+    return {
+      width: width,
+      height: height,
+      scale: scale,
+      baseWidth: bounds.width,
+      baseHeight: bounds.height
+    };
+  }
+
   var utils = {
     formatDateKey: formatDateKey,
     planStorageKey: planStorageKey,
     createPlanItem: createPlanItem,
     normalizePlanList: normalizePlanList,
     togglePlanDone: togglePlanDone,
-    removePlanItem: removePlanItem
+    removePlanItem: removePlanItem,
+    fitLive2DModel: fitLive2DModel
   };
 
   global.APDesktopPetUtils = utils;
@@ -336,17 +399,7 @@
 
     state.app.renderer.resize(width, height);
 
-    var scale = Math.min(width / Math.max(1, state.model.width), height / Math.max(1, state.model.height)) * 0.96;
-    if (Number.isFinite(scale) && scale > 0) {
-      state.model.scale.set(scale);
-    }
-
-    if (state.model.anchor && typeof state.model.anchor.set === 'function') {
-      state.model.anchor.set(0.5, 1);
-    }
-
-    state.model.x = width / 2;
-    state.model.y = height * 0.98;
+    fitLive2DModel(state.model, width, height);
   }
 
   function focusModel(pointer) {
