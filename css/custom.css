@@ -1614,6 +1614,7 @@ body,
   position: absolute;
   right: 168px;
   bottom: 76px;
+  box-sizing: border-box;
   width: min(340px, calc(100vw - 32px));
   max-height: min(460px, calc(100vh - 120px));
   padding: 16px;
@@ -2706,14 +2707,18 @@ html.ap-night-mode .ap-pomodoro-player .aplayer {
     right: auto;
     left: 10px;
     bottom: 70px;
-    width: calc(100vw - 20px);
+    width: min(340px, calc(100vw - 20px));
     max-height: min(430px, calc(100vh - 92px));
   }
 
-  .ap-desktop-pet.is-plan-left .ap-daily-plan,
-  .ap-desktop-pet.is-plan-right .ap-daily-plan {
+  .ap-desktop-pet.is-plan-left .ap-daily-plan {
     right: auto;
     left: 10px;
+  }
+
+  .ap-desktop-pet.is-plan-right .ap-daily-plan {
+    right: 10px;
+    left: auto;
   }
 
   .ap-pomodoro-page {

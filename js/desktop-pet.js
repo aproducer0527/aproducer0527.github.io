@@ -115,13 +115,19 @@
     return clampPetPosition({ left: left, top: top }, viewport, size, margin);
   }
 
-  function getPlanPanelSide(petRect, viewport) {
+  function getPlanPanelSide(petRect, viewport, options) {
     var viewportWidth = Math.max(0, Number(viewport && viewport.width) || 0);
     var petLeft = Number(petRect && petRect.left) || 0;
     var petWidth = Math.max(1, Number(petRect && petRect.width) || 1);
+    var margin = Math.max(0, Number(options && options.margin) || 8);
+    var panelWidth = Math.max(1, Number(options && options.panelWidth) || 340);
     var petCenter = petLeft + petWidth / 2;
+    var leftSpace = petLeft - margin;
+    var rightSpace = viewportWidth - (petLeft + petWidth) - margin;
 
     if (!viewportWidth) return 'left';
+    if (leftSpace < panelWidth) return 'right';
+    if (rightSpace < panelWidth) return 'left';
     return petCenter < viewportWidth / 2 ? 'right' : 'left';
   }
 
@@ -449,7 +455,11 @@
   function applyPlanPanelSide() {
     if (!state.root) return;
 
-    var side = getPlanPanelSide(state.root.getBoundingClientRect(), getViewportSize());
+    var panelRect = state.panel ? state.panel.getBoundingClientRect() : null;
+    var petRect = state.stage ? state.stage.getBoundingClientRect() : state.root.getBoundingClientRect();
+    var side = getPlanPanelSide(petRect, getViewportSize(), {
+      panelWidth: panelRect && panelRect.width ? panelRect.width : 340
+    });
     state.root.classList.remove('is-plan-left');
     state.root.classList.remove('is-plan-right');
     state.root.classList.add(side === 'right' ? 'is-plan-right' : 'is-plan-left');
