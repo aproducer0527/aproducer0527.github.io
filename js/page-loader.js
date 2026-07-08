@@ -125,6 +125,8 @@
   }
 
   function startCurrentPageLoader() {
+    if (!isInternetAngelPage()) return;
+
     startLoader({
       includePageVideos: isInternetAngelPage(),
       minDuration: defaultMinDuration,
