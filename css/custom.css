@@ -766,6 +766,7 @@ body:has(.ap-internet-angel-page) #post-comment {
 /* 页面背景：只保留一份动图（background.gif），禁用主题 4s 渐显，避免闪屏 */
 #web_bg {
   background: url("/img/background.gif") center / cover no-repeat scroll !important;
+  background-color: #f7dcf6 !important; /* 与 gif 主色调一致，加载完成前不露白色 */
   animation: none !important;
 }
 
@@ -1734,6 +1735,7 @@ html.ap-night-mode #web_bg {
   background:
     linear-gradient(180deg, rgba(6, 3, 5, 0.34), rgba(22, 0, 6, 0.7)),
     url("/img/%E7%B3%96%E7%B3%96%E5%BC%80%E5%BF%83.gif") center / cover no-repeat scroll !important;
+  background-color: #1a0a12 !important; /* 夜间深色，加载完成前不露白色 */
 }
 
 html.ap-night-mode #page-header.full_page {
