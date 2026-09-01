@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>阿P的小屋~ - 欢迎来到我的博客</title><meta name="author" content="AProducer"><meta name="copyright" content="AProducer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="喵~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿P的小屋~">
+<meta property="og:url" content="https://aproducer0527.github.io/page/4/">
+<meta property="og:site_name" content="阿P的小屋~">
+<meta property="og:description" content="喵~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aproducer0527.github.io/img/avatar.png">
+<meta property="article:author" content="AProducer">
+<meta property="article:tag" content="阿P, blog, Hexo, Butterfly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aproducer0527.github.io/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aproducer0527.github.io/page/4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '阿P的小屋~',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><script>(function(){try{var mode=window.localStorage.getItem('ap-day-night-mode');if(mode==='night'){document.documentElement.classList.add('ap-night-mode');}}catch(error){}})();</script><link rel="stylesheet" href="/css/custom.css"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/background.gif);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-code"></i><span> 算法笔记</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/background.gif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">阿P的小屋~</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-code"></i><span> 算法笔记</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">阿P的小屋~</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/13-%E5%8D%8F%E7%A8%8B/" title="13-协程">13-协程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T02:24:00.000Z" title="发表于 2026-09-02 10:24:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">协程协程(协同程序)是 Lua 中实现”中断&#x2F;继续”的一种机制,可以理解成”可以暂停的函数”。 协程的创建coroutine.create12345fun = function()    print(123)endco = coroutine.create(fun)print(co)   -- thread: 0x...  coroutine.wrap1co2 = coroutine.wrap(fun)  注意区别:  coroutine.create 创建出来的是一个 thread 类型 coroutine.wrap 创建出来的是一个 function 类型  协程的运行12345-- 对应 create() 用 resume 启动coroutine.resume(co)-- 对应 wrap() 直接用函数调用启动co2()  协程的挂起coroutine.yield() 可以让协程挂起,把执行权交还出去。 1234567891011121314151617fun2 = function()    local i = 1    while true do       ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/12-%E5%A4%9A%E5%8F%98%E9%87%8F%E8%B5%8B%E5%80%BC%E4%B8%8E%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97/" title="12-多变量赋值与逻辑运算">12-多变量赋值与逻辑运算</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T02:22:00.000Z" title="发表于 2026-09-02 10:22:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">多变量赋值与逻辑运算多变量赋值1234a, b, c = 1, 2print(a)   -- 1print(b)   -- 2print(c)   -- nil  多变量赋值时,如果后面的值不够会自动为空(nil);如果后面的值多了会自动忽略。 多返回值规则也一样:如果需要赋值的变量比返回的值多会自动为 nil,反之会忽略。 1234567function Test()    return 10, 20, 30enda, b, c = Test()print(a)   -- 10print(b)   -- 20print(c)   -- 30  and &#x2F; or 逻辑逻辑与、逻辑或不仅连接 Boolean,任何东西都可以用来连接。 在 Lua 中只有 nil 和 false 才认为是假,其他都为真。 “短路”规则:  对于 and 来说,有假则假 对于 or 来说,有真则真  所以它们只判断第一个是否满足就会停止计算了。 模拟三目运算符1234x = 1y = 2local res = (x &gt; y) and x or yprint(res)   -- 2  因为...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/11-%E5%A4%9A%E8%84%9A%E6%9C%AC%E4%B8%8E%E5%85%A8%E5%B1%80%E8%A1%A8/" title="11-多脚本与全局表">11-多脚本与全局表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T02:20:00.000Z" title="发表于 2026-09-02 10:20:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">多脚本与全局表全局变量和本地变量不加任何修饰符的变量就是全局变量,加了 local 修饰符就是本地变量。 12345-- 全局变量a = 1b = &quot;123&quot;-- 本地变量 前面加上local修饰符local c = 3  多脚本执行用关键字 require(&quot;脚本名&quot;) 来加载并执行另一个脚本。 1require(&quot;test&quot;)  脚本卸载如果是 require 加载执行的脚本,加载一次过后不会再被执行。 1234-- package.loaded[&quot;脚本名&quot;]print(package.loaded[&quot;test&quot;])package.loaded[&quot;test&quot;] = nilprint(package.loaded[&quot;test&quot;])  把 package.loaded 里对应的记录置为 nil,脚本就可以被再次加载执行了。 大 G 表(_G)_G 表是一个总表,我们声明的所有全局变量都存储在其中。 加了 local 的变量就不会存进去。 12...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/10-Table%E8%A1%A8-%E5%AD%97%E5%85%B8%E4%B8%8E%E7%B1%BB/" title="10-Table表(字典与类)">10-Table表(字典与类)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T02:18:00.000Z" title="发表于 2026-09-02 10:18:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">Table 表(字典与类)table 支持自定义键值,我们可以利用这一特性来自己构建一个字典。 字典1a = &#123;[&quot;age&quot;] = 10, [&quot;name&quot;] = &quot;张三&quot;&#125;  访问可以通过键和 . 来访问: 123print(a[&quot;age&quot;])   -- 10print(a.name)     -- 张三print(a.age)      -- 10  改 &#x2F; 增 &#x2F; 删1234567891011-- 改a[&quot;age&quot;] = 11print(a.age)      -- 11-- 增a[&quot;sex&quot;] = falseprint(a.sex)      -- false-- 删(赋值为 nil 就是删除)a[&quot;sex&quot;] = nilprint(a.sex)      -- nil  遍历因为 ipairs 的特性(只认从 1 开始的 number 键),我们无法用它来遍历字典,只能通过 pairs 来遍历:...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/09-Table%E8%A1%A8-%E8%BF%AD%E4%BB%A3%E5%99%A8%E9%81%8D%E5%8E%86/" title="09-Table表(迭代器遍历)">09-Table表(迭代器遍历)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T02:16:00.000Z" title="发表于 2026-09-02 10:16:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">Table 表(迭代器遍历)迭代器主要是用来遍历表的。一般我们不用 # 得到长度,因为它并不准确。 1a = &#123;1, 2, [-1] = 3, [4] = 4, [5] = 5&#125;  ipairs 迭代器ipairs 会忽视所有非 number 型的变量。  从 1 开始往后遍历 小于等于 0 的值得不到 如果中间断开(遇到 nil)也不会继续遍历  123for i, k in ipairs(a) do    print(&quot;ipairs遍历值&quot; .. i .. &quot;_&quot; .. k)end  pairs 迭代器pairs 能把所有键都找到。  pairs 会先顺序输出键值对,然后再输出乱序部分的键值对(按键存储时的哈希值来决定) 所以 table 后半部分输出的并不是键 -1、键 4、键 5 从小到大  123for i, v in pairs(a) do    print(&quot;pairs遍历值&quot; .. i .. &quot;_&quot; .. v)end  只遍历键123for i in pairs(a...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/08-Table%E8%A1%A8-%E6%95%B0%E7%BB%84/" title="08-Table表(数组)">08-Table表(数组)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:14:00.000Z" title="发表于 2026-09-01 10:14:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">Table 表(数组)所有的复杂类型都是 table。table 可以做数组、字典,还可以模拟类和结构体。 一维数组1a = &#123;1, 2, 3, 4, 5, 6, &quot;1231&quot;, nil&#125;  Lua 中数组索引从 1 开始,所以访问 a[0] 是找不到的,只会打印出 nil。 1print(a[0])   -- nil(找不到)  nil 会影响 # 获取的长度,# 会忽略 nil,所以这里长度为 7。 1print(#a)   -- 7(nil 后面的内容会被省略)  遍历: 123for i = 1, #a do    print(a[i])end  二维数组12a = &#123;&#123;1, 2, 3, 4, 5, 6&#125;, &#123;2, 3, 4, 5, 6, 7&#125;&#125;print(a[1][2])   -- 2  # 会把子数组当成一个元素算,所以 #a 得到的是 2(外层数组的长度)。 1print(#a)   -- 2  二维数组循环:要先拿到目标行,然后去计算该行的长度,再打印。 12345...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/07-%E5%87%BD%E6%95%B0/" title="07-函数">07-函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:12:00.000Z" title="发表于 2026-09-01 10:12:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">函数基本格式: 12-- function 函数名()-- end  函数也是一种数据类型,可以赋值给变量: 12-- a = function()-- end  无参数无返回值1234function Speak()    print(&quot;叫&quot;)endSpeak()  有参数 有返回值可以不指定参数类型,自动识别传入的参数类型。 12345678function test(a)    return type(a), &quot;132&quot;, trueenda, b, c = test(&quot;132&quot;)print(a)   -- stringprint(b)   -- 132print(c)   -- true  可以有多返回值,但需要对应数量的对象去接,不然会被遗弃。 函数的类型函数的类型就是 function。 不支持重载Lua 不支持函数重载。 变长参数可以根据外部传进来的长度来计算循环几次。 1234567function test1(...)    arg = &#123;...&#125;    for i = 1, #arg...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/06-%E5%BE%AA%E7%8E%AF/" title="06-循环">06-循环</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:10:00.000Z" title="发表于 2026-09-01 10:10:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">循环while 循环12345num = 0while num &lt; 5 do    print(num)    num = num + 1end  repeat … until(do while)Lua 没有 do while,而是用 repeat ... until 实现”先执行后判断”。 12345num = 0repeat    print(num)    num = num + 1until num &gt; 5  until 后面的条件为真时结束循环(和 while 的判断逻辑相反,注意别搞混)。 for 循环for 语句是:开始值、结束值、步长。 123456789-- 从1到5,步长默认是1for i = 1, 5 do    print(i)end-- 指定步长为2:打印 1 3 5for i = 1, 5, 2 do    print(i)end  小结 while 条件 do ... end。 repeat ... until 条件 相当于 do-while,条件为真结束。 for 变量 = 开始值, 结束值, 步长 do ... end,步长可省略(默...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/05-%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF/" title="05-条件分支">05-条件分支</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:08:00.000Z" title="发表于 2026-09-01 10:08:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">条件分支Lua 的条件分支结构是 if 条件 then ... end。 单分支1234a = 7if a &gt; 5 then    print(&quot;123&quot;)end  双分支12345if a &lt; 5 then    print(&quot;小了&quot;)else    print(&quot;大了&quot;)end  多分支1234567if a &lt; 5 then    print(&quot;123&quot;)elseif a == 7 then    print(&quot;7&quot;)elseif a == 8 then    print(&quot;8&quot;)end  注意:Lua 中 elseif 一定要连写(一个单词),写成分开的 else if 会报错。 没有 switchLua 没有 switch 语法,需要自己用 if / elseif 实现。 小结 结构:if 条件 then ... end。 多分支用 elseif(连写),不要用 else if。 没有 switch。  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/04-%E8%BF%90%E7%AE%97%E7%AC%A6/" title="04-运算符">04-运算符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:06:00.000Z" title="发表于 2026-09-01 10:06:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">运算符算术运算符支持 + - * / %(加减乘除取余),也支持 ^ 幂运算。 123456print(&quot;12&quot; + 2)print(&quot;12&quot; - 2)print(&quot;12&quot; / 2)print(&quot;12&quot; * 2)print(&quot;12&quot; % 2)print(&quot;12&quot; ^ 2)  注意:  没有自增自减 ++ -- 没有复合运算符 += -= /= *= %=  字符串转 number上面的例子可以看到,字符串 &quot;12&quot; 可以直接参与算术运算,Lua 会自动把字符串转成 number 再做计算。 123456print(&quot;12&quot; + 2)   -- 14print(&quot;12&quot; - 2)   -- 10print(&quot;12&quot; * 2)   -- 24print(&quot;12&quot; / 2)   -- 6print(&quot;12&quot; % 2)   -- 0print(&quo...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">AProducer</div><div class="author-info-description">不要丢下阿P好不好喵~</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">普通人。<br>联系方式: QQ:1986380136</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/06-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%B3%9B%E5%9E%8B%E7%B1%BB/" title="06-热补丁泛型类">06-热补丁泛型类</a><time datetime="2026-09-02T03:24:00.000Z" title="发表于 2026-09-02 11:24:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/05-%E7%83%AD%E8%A1%A5%E4%B8%81%E4%BA%8B%E4%BB%B6/" title="05-热补丁事件">05-热补丁事件</a><time datetime="2026-09-02T03:22:00.000Z" title="发表于 2026-09-02 11:22:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/04-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%B4%A2%E5%BC%95%E5%99%A8/" title="04-热补丁属性与索引器">04-热补丁属性与索引器</a><time datetime="2026-09-02T03:20:00.000Z" title="发表于 2026-09-02 11:20:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/03-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%8D%8F%E7%A8%8B/" title="03-热补丁协程">03-热补丁协程</a><time datetime="2026-09-02T03:18:00.000Z" title="发表于 2026-09-02 11:18:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/02-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%9B%BF%E6%8D%A2%E5%A4%9A%E4%B8%AA%E6%96%B9%E6%B3%95%E4%B8%8E%E6%9E%84%E9%80%A0%E6%9E%90%E6%9E%84/" title="02-热补丁替换多个方法与构造析构">02-热补丁替换多个方法与构造析构</a><time datetime="2026-09-02T03:16:00.000Z" title="发表于 2026-09-02 11:16:00">2026-09-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">Lua学习笔记</span><span class="card-category-list-count">43</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp%E8%B0%83%E7%94%A8Lua/"><span class="card-category-list-name">CSharp调用Lua</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">Lua基础</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/"><span class="card-category-list-name">Lua调用CSharp</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/"><span class="card-category-list-name">热补丁</span><span class="card-category-list-count">6</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity%E5%85%A5%E9%97%A8/"><span class="card-category-list-name">Unity入门</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"><span class="card-category-list-name">工具配置</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">算法笔记</span><span class="card-category-list-count">6</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/MCP/" style="font-size: 1.1em; color: #999">MCP</a> <a href="/tags/Lua%E5%9F%BA%E7%A1%80/" style="font-size: 1.43em; color: #99a6b9">Lua基础</a> <a href="/tags/%E7%83%AD%E8%A1%A5%E4%B8%81/" style="font-size: 1.23em; color: #999ea6">热补丁</a> <a href="/tags/XLua/" style="font-size: 1.5em; color: #99a9bf">XLua</a> <a href="/tags/Lua%E8%B0%83%E7%94%A8CSharp/" style="font-size: 1.37em; color: #99a4b2">Lua调用CSharp</a> <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">算法与数据结构</a> <a href="/tags/Claude-Code/" style="font-size: 1.1em; color: #999">Claude Code</a> <a href="/tags/Skills/" style="font-size: 1.1em; color: #999">Skills</a> <a href="/tags/AI-Agent/" style="font-size: 1.1em; color: #999">AI Agent</a> <a href="/tags/Lua/" style="font-size: 1.43em; color: #99a6b9">Lua</a> <a href="/tags/Unity/" style="font-size: 1.1em; color: #999">Unity</a> <a href="/tags/CSharp%E8%B0%83%E7%94%A8Lua/" style="font-size: 1.3em; color: #99a1ac">CSharp调用Lua</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">开发工具</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.1em; color: #999">链表</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 1.17em; color: #999c9f">数组</a> <a href="/tags/ECS/" style="font-size: 1.1em; color: #999">ECS</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/09/">
+            <span class="card-archive-list-date">
+              九月 2026
+            </span>
+            <span class="card-archive-list-count">43</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/07/">
+            <span class="card-archive-list-date">
+              七月 2026
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/06/">
+            <span class="card-archive-list-date">
+              六月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">52</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-09-01T16:54:15.034Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By AProducer</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div><div class="footer_custom_text">保持记录，持续学习。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><div class="ap-bgm-player" id="ap-bgm-player"><button class="ap-bgm-toggle" type="button" aria-label="打开音乐播放器" aria-expanded="false"><i class="fas fa-music"></i></button><div class="ap-bgm-panel" aria-label="音乐播放器"><div class="ap-bgm-head"><div><div class="ap-bgm-label">Now Playing</div><div class="ap-bgm-title" id="ap-bgm-title">网易云音乐</div><div class="ap-bgm-subtitle" id="ap-bgm-subtitle">点击左侧按钮展开</div></div><button class="ap-bgm-close" type="button" aria-label="收起音乐播放器"><i class="fas fa-angle-left"></i></button></div><audio id="ap-bgm-audio" class="ap-bgm-audio" controls preload="metadata"></audio><div class="ap-bgm-actions"><button class="ap-bgm-prev" type="button" aria-label="上一首"><i class="fas fa-backward-step"></i></button><button class="ap-bgm-next" type="button" aria-label="下一首"><i class="fas fa-forward-step"></i></button></div><div class="ap-bgm-list" id="ap-bgm-list"></div></div></div><script src="/js/bgm-player.js"></script><script src="/js/pomodoro.js"></script><script src="/js/page-loader.js"></script><script src="/js/internet-angel.js"></script><script src="/js/day-night-context.js"></script><script src="/js/desktop-pet.js"></script><script src="/js/day-text-rain.js"></script><script>window.AP_WEATHER_CONFIG = { amapKey: 'f8f64cea5340d9e4676c1ae7efec02d4', qweatherKey: '4745d0ad95ae400ebd4ded83acfee8ee', qweatherToken: '', qweatherHost: 'https://mp6hf24nuq.re.qweatherapi.com', qweatherGeoHost: 'https://geoapi.qweather.com', cacheMinutes: 30 };</script><script src="/js/clock.js"></script><script src="/js/click-effects.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

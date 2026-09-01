@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>阿P的小屋~ - 欢迎来到我的博客</title><meta name="author" content="AProducer"><meta name="copyright" content="AProducer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="喵~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿P的小屋~">
+<meta property="og:url" content="https://aproducer0527.github.io/page/5/">
+<meta property="og:site_name" content="阿P的小屋~">
+<meta property="og:description" content="喵~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aproducer0527.github.io/img/avatar.png">
+<meta property="article:author" content="AProducer">
+<meta property="article:tag" content="阿P, blog, Hexo, Butterfly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aproducer0527.github.io/img/avatar.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aproducer0527.github.io/page/5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '阿P的小屋~',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><script>(function(){try{var mode=window.localStorage.getItem('ap-day-night-mode');if(mode==='night'){document.documentElement.classList.add('ap-night-mode');}}catch(error){}})();</script><link rel="stylesheet" href="/css/custom.css"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/background.gif);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-code"></i><span> 算法笔记</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/background.gif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">阿P的小屋~</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-code"></i><span> 算法笔记</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">阿P的小屋~</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/03-%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="03-字符串">03-字符串</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:04:00.000Z" title="发表于 2026-09-01 10:04:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">字符串字符串可以用双引号或单引号表示。 12str1 = &quot;双引号字符串&quot;str1 = &#x27;单引号字符串&#x27;  获取字符串长度用 # 可以获取长度。一个英文字母占 1 个长度,一个中文占 3 个长度。 12s = &quot;abcdefg字符串&quot;print(#s)   -- 7个英文字母 + 2个中文(各占3) = 13  转义字符Lua 支持转义字符,比如 \n 换行。 1print(&quot;123\n123&quot;)  多行字符串用 [[ ]] 可以多行打印。 123456s = [[我是神必人]]print(s)  字符串拼接通过 .. 连接字符串。 1print(&quot;134&quot;..&quot;111&quot;)  还可以用 string.format 拼接: 1234-- %d 是与数字拼接-- %a 与任何字符拼接-- %s 是与字符配对print(string.format(&quot;我是%s&quot;, &quot;L&quot;))  类型转换别的类型可以转字符串 tostring()。...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/02-%E5%8F%98%E9%87%8F%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="02-变量与数据类型">02-变量与数据类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:02:00.000Z" title="发表于 2026-09-01 10:02:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">变量与数据类型变量通过 type() 可以获得变量类型,type 返回的类型本身是 string 型。 数据类型总览Lua 的变量类型分成两类: 简单变量类型 1234nil    空number 数值string 字符串boolean 布尔  复杂数据类型 1234function  函数table     表userdata  数据结构(如 Unity 的 GameObject 等外部对象)thread    协同程序(协程)  核心特点Lua 中所有的变量声明都不需要声明变量类型,它会自动判断类型。 12-- lua中 所有的变量申明,都不需要申明变量类型 他会自动的判断类型-- lua中的变量会自动识别类型  nil(空)没有声明过的变量不会报错,直接打印出来是 nil。 1234567-- 没有声明过的变量不会报错print(b)-- nil就是nulla = nilprint(a)print(type(a))  nil 就相当于别的语言里的 null。 number(数值)number 就是所有的数值型,整数和小数都是 number。 1234567a = 1prin...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/01/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/01-%E5%88%9D%E8%AF%86Lua/" title="01-初识Lua">01-初识Lua</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-01T02:00:00.000Z" title="发表于 2026-09-01 10:00:00">2026-09-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/">Lua基础</a></span></div><div class="content">初识Lua学习 Lua 的第一步,自然是跑通第一个程序。 Lua 是一种轻量小巧的脚本语言,常被用于 Unity 热更新(XLua、tolua)等场景。它的语法简单、上手快,和 C#&#x2F;C++ 这类语言比起来写起来非常轻便。 第一个程序Lua 中输出内容使用 print(),直接在括号里写上要输出的内容即可。 1print(&quot;你好时间&quot;)  运行之后,控制台会打印出 你好时间。 小结 Lua 用 print() 输出内容。 字符串可以用双引号 &quot;...&quot; 包裹(当然单引号也行,后面会讲到)。  </div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/10/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E9%93%BE%E8%A1%A8/%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0/" title="移除链表元素 LeetCode203">移除链表元素 LeetCode203</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-10T05:57:00.000Z" title="发表于 2026-07-10 13:57:00">2026-07-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a></span></div><div class="content">移除链表元素问题描述给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val &#x3D;&#x3D; val 的节点，并返回 新的头节点对应LeetCode203 核心思路设置一个虚拟头节点,这样原链表的所有节点就都可以按照统一的方式移除具体实现如下代码 代码模板12345678910111213141516171819202122class Solution &#123;public:    ListNode* removeElements(ListNode* head, int val) &#123;        ListNode* dummyNode = new ListNode(0); // 设置一个虚拟头节点        dummyNode-&gt;next = head;        ListNode* cur = dummyNode;                while (cur-&gt;next != NULL) &#123;            if (cur-&gt;next-&gt;val == val)...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/09/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%95%B0%E7%BB%84/%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II/" title="螺旋矩阵II LeetCode59">螺旋矩阵II LeetCode59</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-09T05:25:00.000Z" title="发表于 2026-07-09 13:25:00">2026-07-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a></span></div><div class="content">二分查找法问题描述给你一个正整数n，生成一个包含1到n2所有元素，且元素按顺时针顺序螺旋排列的n x n正方形矩阵matrix对应LeetCode59 核心思路模拟 遵循左闭右开原则 代码模板123456789101112131415161718192021222324252627282930313233343536class Solution &#123;public:    vector&lt;vector&lt;int&gt;&gt; generateMatrix(int n) &#123;        int startx=0,starty=0; //开始的坐标位置        int loop=n/2; //循环次数        int mid=n/2;  //中间位置后面单独计算用        int offset=1;         int count=1;        vector&lt;vector&lt;int&gt;&gt; res(n,vector&lt;int&gt;(n,0));        while(loop--)&#123;    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/08/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%95%B0%E7%BB%84/%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/" title="长度最小的子数组 LeetCode209">长度最小的子数组 LeetCode209</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-08T05:45:00.000Z" title="发表于 2026-07-08 13:45:00">2026-07-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a></span></div><div class="content">移除元素问题描述给定一个含有 n 个正整数的数组和一个正整数 target 。找出该数组中满足其总和大于等于 target 的长度最小的 子数组 [numsl, numsl+1, …, numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0对应LeetCode209 核心思路维护一个滑动窗口[i,j],j不断向右扩展,sum保存当前窗口内元素和,当sum大于等于target时 当前窗口满足条件，尝试缩小左边界i 继续找更短的答案 代码模板1234567891011121314class Solution &#123;public:    int minSubArrayLen(int target, vector&lt;int&gt;&amp; nums) &#123;        int sum=0,res=INT_MAX;        for(int i=0,j=0;j&lt;nums.size();j++)&#123;            sum +=nums[j];            while(sum &gt;=target)&#1...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/06/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%95%B0%E7%BB%84/%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9/" title="有序数组的平方 LeetCode977">有序数组的平方 LeetCode977</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-06T13:24:08.000Z" title="发表于 2026-07-06 21:24:08">2026-07-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a></span></div><div class="content">有序数组的平方问题描述给你一个按 非递减顺序 排序的整数数组 nums，返回 每个数字的平方 组成的新数组，要求也按 非递减顺序 排序。 核心思路如果是遍历一遍数组平方后然后再用sort排序这种方法虽然可行但是时间复杂度会飙升到O(NlogN)C++ 中 std::sort 的时间复杂度是O(NlogN)因此，先平方再排序的总时间复杂度是 O(NlogN)此题最优解就是采用双指针法 代码模板1234567891011121314151617181920212223242526272829class Solution &#123;public:    vector&lt;int&gt; sortedSquares(vector&lt;int&gt;&amp; nums) &#123;        // 如果是遍历一遍数组平方后然后再用sort排序        // 这种方法虽然可行但是时间复杂度会飙升到O(NlogN)        // C++ 中 std::sort 的时间复杂度是        // O(NlogN)因此，先平方再排序的总时间复杂度是 O(NlogN)  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/05/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%95%B0%E7%BB%84/%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0/" title="移除元素 LeetCode27">移除元素 LeetCode27</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-05T02:00:08.000Z" title="发表于 2026-07-05 10:00:08">2026-07-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a></span></div><div class="content">移除元素问题描述给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素。元素的顺序可能发生改变。然后返回 nums 中与 val 不同的元素的数量。假设 nums 中不等于 val 的元素数量为 k，要通过此题，您需要执行以下操作：更改 nums 数组，使 nums 的前 k 个元素包含不等于 val 的元素。nums 的其余元素和 nums 的大小并不重要。返回 k。对应LeetCode27 核心思路采用快慢指针的方法即快指针遍历整个数组，慢指针记录下一个有效元素应该存放的位置 代码模板1234567891011121314class Solution &#123;public:    int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123;        //双指针,快指针遍历整个数组，慢指针记录下一个有效元素应该存放的位置        int slow=0;        for(int fast=0;fast&lt;nums.size();fast++)&#123;  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%95%B0%E7%BB%84/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95/" title="二分查找法 LeetCode704">二分查找法 LeetCode704</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T16:00:00.000Z" title="发表于 2026-07-04 00:00:00">2026-07-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a></span></div><div class="content">二分查找法问题描述这是这个系列的第一题具体顺序是按照代码随想录的题单顺序进行的,本模块讲究图码结合进行,希望能帮到各位。对应LeetCode704 核心思路二分查找最核心的就是套公式了基础写法就是** middle &#x3D; (left + right) &#x2F; 2 **防溢出写法** int middle&#x3D;left+(right-left)&#x2F;2 **    或者 ** middle &#x3D; left + ((right - left) &gt;&gt; 1) **找出中间值后则进行条件判断就好了 middle下标值小于target说明不在左边让left移动到middle这边反之不在右边具体实现如下代码 代码模板1234567891011121314151617181920class Solution &#123;public:    int search(vector&lt;int&gt;&amp; nums, int target) &#123;        int left=0,right=nums.size()-1;        w...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/01/ClaudeCode%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" title="Claude Code 安装与使用入门笔记">Claude Code 安装与使用入门笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-01T11:30:00.000Z" title="发表于 2026-07-01 19:30:00">2026-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/">工具配置</a></span></div><div class="content">Claude Code 安装与使用入门笔记前言Claude Code 是一个运行在命令行里的 AI Agent 工具。它不只是“会聊天的 AI”，而是可以在指定项目目录中读取文件、执行命令、安装工具、调用 MCP、使用 Skills，并围绕一个真实工作目录完成连续任务。 本文整理一套 Windows 环境下的 Claude Code 安装与基础使用流程，内容包括：  安装 Claude Code； 配置第三方模型接口； 安装 Playwright MCP，让 Claude Code 控制浏览器； 理解工作目录、权限模式、上下文和历史会话； 安装 Skills，并用能力包完成更复杂的自动化任务。  一、先理解几个核心概念1. Claude Code 不只适合程序员Claude Code 最常见的使用场景确实是写代码、改代码和排查工程问题，但它本质上更接近一个通用 Agent 运行环境。 在实际使用中，它可以做的事情包括：  读取和修改本地文件； 执行终端命令； 安装依赖和工具； 调用浏览器、文档、剪辑等外部能力； 通过 MCP 连接第三方工具； 通过 Skills 复用固定工作流；...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/6/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">AProducer</div><div class="author-info-description">不要丢下阿P好不好喵~</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">普通人。<br>联系方式: QQ:1986380136</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/06-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%B3%9B%E5%9E%8B%E7%B1%BB/" title="06-热补丁泛型类">06-热补丁泛型类</a><time datetime="2026-09-02T03:24:00.000Z" title="发表于 2026-09-02 11:24:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/05-%E7%83%AD%E8%A1%A5%E4%B8%81%E4%BA%8B%E4%BB%B6/" title="05-热补丁事件">05-热补丁事件</a><time datetime="2026-09-02T03:22:00.000Z" title="发表于 2026-09-02 11:22:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/04-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%B4%A2%E5%BC%95%E5%99%A8/" title="04-热补丁属性与索引器">04-热补丁属性与索引器</a><time datetime="2026-09-02T03:20:00.000Z" title="发表于 2026-09-02 11:20:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/03-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%8D%8F%E7%A8%8B/" title="03-热补丁协程">03-热补丁协程</a><time datetime="2026-09-02T03:18:00.000Z" title="发表于 2026-09-02 11:18:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/02-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%9B%BF%E6%8D%A2%E5%A4%9A%E4%B8%AA%E6%96%B9%E6%B3%95%E4%B8%8E%E6%9E%84%E9%80%A0%E6%9E%90%E6%9E%84/" title="02-热补丁替换多个方法与构造析构">02-热补丁替换多个方法与构造析构</a><time datetime="2026-09-02T03:16:00.000Z" title="发表于 2026-09-02 11:16:00">2026-09-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">Lua学习笔记</span><span class="card-category-list-count">43</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp%E8%B0%83%E7%94%A8Lua/"><span class="card-category-list-name">CSharp调用Lua</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">Lua基础</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/"><span class="card-category-list-name">Lua调用CSharp</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/"><span class="card-category-list-name">热补丁</span><span class="card-category-list-count">6</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity%E5%85%A5%E9%97%A8/"><span class="card-category-list-name">Unity入门</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"><span class="card-category-list-name">工具配置</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">算法笔记</span><span class="card-category-list-count">6</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/MCP/" style="font-size: 1.1em; color: #999">MCP</a> <a href="/tags/Lua%E5%9F%BA%E7%A1%80/" style="font-size: 1.43em; color: #99a6b9">Lua基础</a> <a href="/tags/%E7%83%AD%E8%A1%A5%E4%B8%81/" style="font-size: 1.23em; color: #999ea6">热补丁</a> <a href="/tags/XLua/" style="font-size: 1.5em; color: #99a9bf">XLua</a> <a href="/tags/Lua%E8%B0%83%E7%94%A8CSharp/" style="font-size: 1.37em; color: #99a4b2">Lua调用CSharp</a> <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">算法与数据结构</a> <a href="/tags/Claude-Code/" style="font-size: 1.1em; color: #999">Claude Code</a> <a href="/tags/Skills/" style="font-size: 1.1em; color: #999">Skills</a> <a href="/tags/AI-Agent/" style="font-size: 1.1em; color: #999">AI Agent</a> <a href="/tags/Lua/" style="font-size: 1.43em; color: #99a6b9">Lua</a> <a href="/tags/Unity/" style="font-size: 1.1em; color: #999">Unity</a> <a href="/tags/CSharp%E8%B0%83%E7%94%A8Lua/" style="font-size: 1.3em; color: #99a1ac">CSharp调用Lua</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">开发工具</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.1em; color: #999">链表</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 1.17em; color: #999c9f">数组</a> <a href="/tags/ECS/" style="font-size: 1.1em; color: #999">ECS</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/09/">
+            <span class="card-archive-list-date">
+              九月 2026
+            </span>
+            <span class="card-archive-list-count">43</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/07/">
+            <span class="card-archive-list-date">
+              七月 2026
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/06/">
+            <span class="card-archive-list-date">
+              六月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">52</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-09-01T16:54:15.034Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By AProducer</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div><div class="footer_custom_text">保持记录，持续学习。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><div class="ap-bgm-player" id="ap-bgm-player"><button class="ap-bgm-toggle" type="button" aria-label="打开音乐播放器" aria-expanded="false"><i class="fas fa-music"></i></button><div class="ap-bgm-panel" aria-label="音乐播放器"><div class="ap-bgm-head"><div><div class="ap-bgm-label">Now Playing</div><div class="ap-bgm-title" id="ap-bgm-title">网易云音乐</div><div class="ap-bgm-subtitle" id="ap-bgm-subtitle">点击左侧按钮展开</div></div><button class="ap-bgm-close" type="button" aria-label="收起音乐播放器"><i class="fas fa-angle-left"></i></button></div><audio id="ap-bgm-audio" class="ap-bgm-audio" controls preload="metadata"></audio><div class="ap-bgm-actions"><button class="ap-bgm-prev" type="button" aria-label="上一首"><i class="fas fa-backward-step"></i></button><button class="ap-bgm-next" type="button" aria-label="下一首"><i class="fas fa-forward-step"></i></button></div><div class="ap-bgm-list" id="ap-bgm-list"></div></div></div><script src="/js/bgm-player.js"></script><script src="/js/pomodoro.js"></script><script src="/js/page-loader.js"></script><script src="/js/internet-angel.js"></script><script src="/js/day-night-context.js"></script><script src="/js/desktop-pet.js"></script><script src="/js/day-text-rain.js"></script><script>window.AP_WEATHER_CONFIG = { amapKey: 'f8f64cea5340d9e4676c1ae7efec02d4', qweatherKey: '4745d0ad95ae400ebd4ded83acfee8ee', qweatherToken: '', qweatherHost: 'https://mp6hf24nuq.re.qweatherapi.com', qweatherGeoHost: 'https://geoapi.qweather.com', cacheMinutes: 30 };</script><script src="/js/clock.js"></script><script src="/js/click-effects.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

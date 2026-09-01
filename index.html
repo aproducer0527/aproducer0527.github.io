@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>阿P的小屋~ - 欢迎来到我的博客</title><meta name="author" content="AProducer"><meta name="copyright" content="AProducer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="喵~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿P的小屋~">
+<meta property="og:url" content="https://aproducer0527.github.io/">
+<meta property="og:site_name" content="阿P的小屋~">
+<meta property="og:description" content="喵~">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://aproducer0527.github.io/img/avatar.png">
+<meta property="article:author" content="AProducer">
+<meta property="article:tag" content="阿P, blog, Hexo, Butterfly">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://aproducer0527.github.io/img/avatar.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "阿P的小屋~",
+  "alternateName": [
+    "欢迎来到我的博客",
+    "aproducer0527.github.io",
+    "欢迎来到我的博客",
+    "aproducer0527.github.io"
+  ],
+  "url": "https://aproducer0527.github.io/"
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://aproducer0527.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '阿P的小屋~',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><script>(function(){try{var mode=window.localStorage.getItem('ap-day-night-mode');if(mode==='night'){document.documentElement.classList.add('ap-night-mode');}}catch(error){}})();</script><link rel="stylesheet" href="/css/custom.css"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/img/background.gif);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-code"></i><span> 算法笔记</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/background.gif);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">阿P的小屋~</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/pomodoro/"><i class="fa-fw fas fa-clock"></i><span> 番茄钟</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><i class="fa-fw fas fa-code"></i><span> 算法笔记</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-user"></i><span> 关于</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/internet-angel/"><i class="fa-fw fas fa-video"></i><span> INTERNET ANGEL</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">阿P的小屋~</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/06-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%B3%9B%E5%9E%8B%E7%B1%BB/" title="06-热补丁泛型类">06-热补丁泛型类</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:24:00.000Z" title="发表于 2026-09-02 11:24:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/">热补丁</a></span></div><div class="content">热补丁:替换泛型类泛型类里的 T 是可以变化的,在 Lua 中如何替换呢?答案是:一个类型一个类型地打补丁。 被替换的 C# 泛型类1234567public class HotfixTest2&lt;T&gt;&#123;    public void Test(T str)    &#123;        Debug.Log(str);    &#125;&#125;  使用时实例化的是 HotfixTest2&lt;string&gt;: 12HotfixTest2&lt;string&gt; t1 = new HotfixTest2&lt;string&gt;();t1.Test(&quot;123&quot;);  Lua 侧热补丁12345678-- 泛型类中 T是可以变化的 在lua中如何替换呢-- lua中的替换 要一个类型一个类型的来xlua.hotfix(CS.HotfixTest2(CS.System.String), &#123;    Test = function(self, str)        print(&quot;lua中打的补丁&quot...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/05-%E7%83%AD%E8%A1%A5%E4%B8%81%E4%BA%8B%E4%BB%B6/" title="05-热补丁事件">05-热补丁事件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:22:00.000Z" title="发表于 2026-09-02 11:22:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/">热补丁</a></span></div><div class="content">热补丁:替换事件C# 事件底层对应 add_事件名 &#x2F; remove_事件名 两个方法,热补丁就是替换这两个方法。 被替换的 C# 代码123456789101112131415using UnityEngine.Events;[Hotfix]public class HotfixMain : MonoBehaviour&#123;    event UnityAction myEvent;    void TestTest() &#123; &#125;    void Start()    &#123;        myEvent += TestTest;        myEvent -= TestTest;    &#125;&#125;  Lua 侧热补丁1234567891011121314151617xlua.hotfix(CS.HotfixMain, &#123;    -- add_事件名 代表事件加操作    -- remove_事件名 代表减操作    add_myEvent = function(self, del)        print(...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/04-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%B4%A2%E5%BC%95%E5%99%A8/" title="04-热补丁属性与索引器">04-热补丁属性与索引器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:20:00.000Z" title="发表于 2026-09-02 11:20:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/">热补丁</a></span></div><div class="content">热补丁:替换属性与索引器热补丁不能直接写 Age = function...,属性、索引器在底层是 get_xxx &#x2F; set_xxx 方法,所以要替换的是这些”方法”。 被替换的 C# 代码12345678910111213141516171819202122232425262728[Hotfix]public class HotfixMain : MonoBehaviour&#123;    private int[] array = new int[] &#123; 1, 2, 3 &#125;;    public int Age    &#123;        get &#123; return 0; &#125;        set &#123; Debug.Log(value); &#125;    &#125;    public int this[int index]    &#123;        get        &#123;            if (index &gt; array.Length || index &lt; 0) ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/03-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%8D%8F%E7%A8%8B/" title="03-热补丁协程">03-热补丁协程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:18:00.000Z" title="发表于 2026-09-02 11:18:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/">热补丁</a></span></div><div class="content">热补丁:替换 C# 协程被替换的方法如果是个协程函数,热补丁时就要在 Lua 里返回一个经过 xlua.util 处理的协程函数。 被替换的 C# 协程123456789101112[Hotfix]public class HotfixMain : MonoBehaviour&#123;    IEnumerator TestCoroutine()    &#123;        while (true)        &#123;            yield return new WaitForSeconds(1f);            Debug.Log(&quot;C#打印一次&quot;);        &#125;    &#125;&#125;  Lua 侧热补丁1234567891011121314-- 要在lua中配合C#协程函数 那么必须使用它util = require(&quot;xlua.util&quot;)xlua.hotfix(CS.HotfixMain, &#123;    TestCoroutine = function(self)...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/02-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%9B%BF%E6%8D%A2%E5%A4%9A%E4%B8%AA%E6%96%B9%E6%B3%95%E4%B8%8E%E6%9E%84%E9%80%A0%E6%9E%90%E6%9E%84/" title="02-热补丁替换多个方法与构造析构">02-热补丁替换多个方法与构造析构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:16:00.000Z" title="发表于 2026-09-02 11:16:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/">热补丁</a></span></div><div class="content">热补丁:替换多个方法与构造&#x2F;析构函数上一课是一次替换一个方法。其实 xlua.hotfix 支持一次传一个表,同时替换多个方法。 一次替换多个方法12345678910111213-- xlua.hotfix(类, &#123;函数名=函数, 函数名=函数&#125;)xlua.hotfix(CS.HotfixMain, &#123;    Update = function(self)        print(os.time())    end,    Add = function(self, a, b)        return a + b    end,    Speak = function(a)        print(a)    end&#125;)  表的键是 C# 方法名,值是要替换的 Lua 函数。这样 Update、Add、Speak 一次全换了。 替换构造函数和析构函数对应 C# 类: 123456789101112131415[Hotfix]public class HotfixTest&#123;    public HotfixTest...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/01-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%85%A5%E9%97%A8/" title="01-热补丁入门">01-热补丁入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:14:00.000Z" title="发表于 2026-09-02 11:14:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/">热补丁</a></span></div><div class="content">热补丁入门热补丁(Hotfix)可以在不重新打包的情况下,用 Lua 代码去替换 C# 已发布版本里的方法逻辑。游戏上线后想改 BUG 或调数值,发一个 Lua 补丁就行了。 被替换的 C# 类123456789101112131415using XLua;[Hotfix]public class HotfixMain : MonoBehaviour&#123;    public int Add(int a, int b)    &#123;        return 0;   // 故意返回错误结果,用来被热补丁修复    &#125;    public static void Speak(string str)    &#123;        Debug.Log(&quot;红红火火恍恍惚惚&quot;);    &#125;&#125;  Lua 侧固定写法1234567891011-- lua当中热补丁代码固定写法-- xlua.hotfix(类,&quot;函数名&quot;,lua函数)-- 直接写好代码允许是会报错的xlua.hotfix(CS.Hotfix...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/12-%E8%B0%83%E7%94%A8CSharp%E6%B3%9B%E5%9E%8B/" title="12-调用CSharp泛型">12-调用CSharp泛型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:12:00.000Z" title="发表于 2026-09-02 11:12:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/">Lua调用CSharp</a></span></div><div class="content">Lua 调用 C#:调用 C# 泛型Lua 对 C# 泛型方法的支持很有限,只有部分情况能用,需要专门的方法来处理。 C# 侧定义123456789101112131415161718public class Lesson12&#123;    public interface ITest &#123; &#125;    public class TestFather &#123; &#125;    public class TestChild : TestFather, ITest &#123; &#125;    // 有参数有约束的泛型方法(class 约束)    public void TestFun1&lt;T&gt;(T a, T b) where T : TestFather &#123; &#125;    // 有参数没有约束    public void TestFun2&lt;T&gt;(T a) &#123; &#125;    // 有约束但是没有参数的泛型    public void TestFun3&lt;T&gt;() where T : ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/11-%E8%B0%83%E7%94%A8CSharp%E5%8D%8F%E7%A8%8B/" title="11-调用CSharp协程">11-调用CSharp协程</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:10:00.000Z" title="发表于 2026-09-02 11:10:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/">Lua调用CSharp</a></span></div><div class="content">Lua 调用 C#:调用 C# 协程C# 中协程启动都是通过继承了 MonoBehaviour 的类,通过里面的启动函数 StartCoroutine 来开启。Lua 想开协程,得借助 XLua 的 xlua.util 工具表。 准备工具表12-- xlua提供的工具表 一定是要引用之后才能用util = require(&quot;xlua.util&quot;)  准备一个可以开协程的对象123456GameObject = CS.UnityEngine.GameObjectWaitForSeconds = CS.UnityEngine.WaitForSeconds-- 在场景中新建一个空物体 然后挂一个脚本上去 脚本继承mono使用它开启协程local obj = GameObject(&quot;Coroutine&quot;)local mono = obj:AddComponent(typeof(CS.LuaCallCSharp))  CS.LuaCallCSharp 是一个继承 MonoBehaviour 的脚本,拿它来执行 StartCoroutine。 Lua ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/10-%E8%B0%83%E7%94%A8CSharp%E7%9A%84UI%E4%BA%8B%E4%BB%B6/" title="10-调用CSharp的UI事件">10-调用CSharp的UI事件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:08:00.000Z" title="发表于 2026-09-02 11:08:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/">Lua调用CSharp</a></span></div><div class="content">Lua 调用 C#:调用 C# 的 UI 事件以 Unity UI 的 Slider 为例,在 Lua 里给它的 onValueChanged 事件挂回调函数。 Lua 侧使用123456789101112GameObject = CS.UnityEngine.GameObjectUI = CS.UnityEngine.UI-- 场景里找一个叫 Slider 的对象local slider = GameObject.Find(&quot;Slider&quot;)local SliderScript = slider:GetComponent(typeof(UI.Slider))print(SliderScript)-- 给 onValueChanged 添加监听,Lua 函数作为回调SliderScript.onValueChanged:AddListener(function(f)    print(f)end)  关键点UI 命名空间Unity 的 UI 类是 CS.UnityEngine.UI.类名: 12UI = CS.UnityEngine.UIlocal Slide...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/09-nil%E5%92%8Cnull%E6%AF%94%E8%BE%83/" title="09-nil和null比较">09-nil和null比较</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-09-02T03:06:00.000Z" title="发表于 2026-09-02 11:06:00">2026-09-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Lua学习笔记</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/">Lua调用CSharp</a></span></div><div class="content">Lua 调用 C#:nil 和 null 比较Lua 的 nil 和 C# 的 null 没法进行 == 比较,这是 Lua 调用 C# 时判断对象是否为空的一个坑。常见的解决方式有两种。 问题场景123456GameObject = CS.UnityEngine.GameObjectRigidbody = CS.UnityEngine.Rigidbodylocal obj = GameObject(&quot;测试加脚本&quot;)-- 得到身上的刚体组件 如果没有就加 有就不管local rig = obj:GetComponent(typeof(Rigidbody))  直接写 if rig == nil 判断是不行的,因为组件拿不到时 Unity 返回的是 C# 的 null,不是 Lua 的 nil。 方案一:全局判空方法在 Main.lua 里封装一个全局判空函数: 123456function IsNull(obj)    if obj == nil or obj:Equals(nil) then        return true    end    retu...</div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">AProducer</div><div class="author-info-description">不要丢下阿P好不好喵~</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">52</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">普通人。<br>联系方式: QQ:1986380136</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/06-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%B3%9B%E5%9E%8B%E7%B1%BB/" title="06-热补丁泛型类">06-热补丁泛型类</a><time datetime="2026-09-02T03:24:00.000Z" title="发表于 2026-09-02 11:24:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/05-%E7%83%AD%E8%A1%A5%E4%B8%81%E4%BA%8B%E4%BB%B6/" title="05-热补丁事件">05-热补丁事件</a><time datetime="2026-09-02T03:22:00.000Z" title="发表于 2026-09-02 11:22:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/04-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%B1%9E%E6%80%A7%E4%B8%8E%E7%B4%A2%E5%BC%95%E5%99%A8/" title="04-热补丁属性与索引器">04-热补丁属性与索引器</a><time datetime="2026-09-02T03:20:00.000Z" title="发表于 2026-09-02 11:20:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/03-%E7%83%AD%E8%A1%A5%E4%B8%81%E5%8D%8F%E7%A8%8B/" title="03-热补丁协程">03-热补丁协程</a><time datetime="2026-09-02T03:18:00.000Z" title="发表于 2026-09-02 11:18:00">2026-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/09/02/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/02-%E7%83%AD%E8%A1%A5%E4%B8%81%E6%9B%BF%E6%8D%A2%E5%A4%9A%E4%B8%AA%E6%96%B9%E6%B3%95%E4%B8%8E%E6%9E%84%E9%80%A0%E6%9E%90%E6%9E%84/" title="02-热补丁替换多个方法与构造析构">02-热补丁替换多个方法与构造析构</a><time datetime="2026-09-02T03:16:00.000Z" title="发表于 2026-09-02 11:16:00">2026-09-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">Lua学习笔记</span><span class="card-category-list-count">43</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp%E8%B0%83%E7%94%A8Lua/"><span class="card-category-list-name">CSharp调用Lua</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">Lua基础</span><span class="card-category-list-count">16</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Lua%E8%B0%83%E7%94%A8CSharp/"><span class="card-category-list-name">Lua调用CSharp</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Lua%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E7%83%AD%E8%A1%A5%E4%B8%81/"><span class="card-category-list-name">热补丁</span><span class="card-category-list-count">6</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity%E5%85%A5%E9%97%A8/"><span class="card-category-list-name">Unity入门</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/"><span class="card-category-list-name">工具配置</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/"><span class="card-category-list-name">算法笔记</span><span class="card-category-list-count">6</span></a></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/MCP/" style="font-size: 1.1em; color: #999">MCP</a> <a href="/tags/Lua%E5%9F%BA%E7%A1%80/" style="font-size: 1.43em; color: #99a6b9">Lua基础</a> <a href="/tags/%E7%83%AD%E8%A1%A5%E4%B8%81/" style="font-size: 1.23em; color: #999ea6">热补丁</a> <a href="/tags/XLua/" style="font-size: 1.5em; color: #99a9bf">XLua</a> <a href="/tags/Lua%E8%B0%83%E7%94%A8CSharp/" style="font-size: 1.37em; color: #99a4b2">Lua调用CSharp</a> <a href="/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">算法与数据结构</a> <a href="/tags/Claude-Code/" style="font-size: 1.1em; color: #999">Claude Code</a> <a href="/tags/Skills/" style="font-size: 1.1em; color: #999">Skills</a> <a href="/tags/AI-Agent/" style="font-size: 1.1em; color: #999">AI Agent</a> <a href="/tags/Lua/" style="font-size: 1.43em; color: #99a6b9">Lua</a> <a href="/tags/Unity/" style="font-size: 1.1em; color: #999">Unity</a> <a href="/tags/CSharp%E8%B0%83%E7%94%A8Lua/" style="font-size: 1.3em; color: #99a1ac">CSharp调用Lua</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">开发工具</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.1em; color: #999">链表</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 1.17em; color: #999c9f">数组</a> <a href="/tags/ECS/" style="font-size: 1.1em; color: #999">ECS</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/09/">
+            <span class="card-archive-list-date">
+              九月 2026
+            </span>
+            <span class="card-archive-list-count">43</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/07/">
+            <span class="card-archive-list-date">
+              七月 2026
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/06/">
+            <span class="card-archive-list-date">
+              六月 2026
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">52</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-09-01T16:54:15.034Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2026 By AProducer</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div><div class="footer_custom_text">保持记录，持续学习。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><div class="ap-bgm-player" id="ap-bgm-player"><button class="ap-bgm-toggle" type="button" aria-label="打开音乐播放器" aria-expanded="false"><i class="fas fa-music"></i></button><div class="ap-bgm-panel" aria-label="音乐播放器"><div class="ap-bgm-head"><div><div class="ap-bgm-label">Now Playing</div><div class="ap-bgm-title" id="ap-bgm-title">网易云音乐</div><div class="ap-bgm-subtitle" id="ap-bgm-subtitle">点击左侧按钮展开</div></div><button class="ap-bgm-close" type="button" aria-label="收起音乐播放器"><i class="fas fa-angle-left"></i></button></div><audio id="ap-bgm-audio" class="ap-bgm-audio" controls preload="metadata"></audio><div class="ap-bgm-actions"><button class="ap-bgm-prev" type="button" aria-label="上一首"><i class="fas fa-backward-step"></i></button><button class="ap-bgm-next" type="button" aria-label="下一首"><i class="fas fa-forward-step"></i></button></div><div class="ap-bgm-list" id="ap-bgm-list"></div></div></div><script src="/js/bgm-player.js"></script><script src="/js/pomodoro.js"></script><script src="/js/page-loader.js"></script><script src="/js/internet-angel.js"></script><script src="/js/day-night-context.js"></script><script src="/js/desktop-pet.js"></script><script src="/js/day-text-rain.js"></script><script>window.AP_WEATHER_CONFIG = { amapKey: 'f8f64cea5340d9e4676c1ae7efec02d4', qweatherKey: '4745d0ad95ae400ebd4ded83acfee8ee', qweatherToken: '', qweatherHost: 'https://mp6hf24nuq.re.qweatherapi.com', qweatherGeoHost: 'https://geoapi.qweather.com', cacheMinutes: 30 };</script><script src="/js/clock.js"></script><script src="/js/click-effects.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:description\"]","link[rel=\"canonical\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
